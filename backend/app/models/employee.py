@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 from app.models import User
+from sqlalchemy.ext.hybrid import hybrid_property
 
 class Employee(Base):
     __tablename__ = "employees"
@@ -14,23 +15,8 @@ class Employee(Base):
     hire_date = Column(Date, nullable=False)
     job_title = Column(String(100), nullable=False)
     salary = Column(Float, nullable=False)
-    department_id = Column(Integer, ForeignKey("departments.id"))
+    user = relationship("User", back_populates="employee", uselist=False)
     
-    department = relationship("Department", back_populates="employees")
-    # ✅ Foreign key column
-    rank_id = Column(Integer, ForeignKey("ranks.id"))
-
-    # ✅ Relationship back to Rank
-    rank = relationship("Rank", back_populates="employees")
-    
-    # Add relationships for attendance and timesheet
-    attendances = relationship("Attendance", back_populates="employee")
-    timesheets = relationship("Timesheet", back_populates="employee")
-    
-    # Add relationships for salary management
-    salaries = relationship("EmployeeSalary", back_populates="employee")
-    salary_structures = relationship("SalaryStructure", back_populates="employee")
-    salary_histories = relationship("SalaryHistory", back_populates="employee")
-    
-    # Add relationship for payslips
-    payslips = relationship("Payslip", back_populates="employee")
+    @hybrid_property
+    def name(self) -> str:
+        return f"{self.first_name} {self.last_name}"

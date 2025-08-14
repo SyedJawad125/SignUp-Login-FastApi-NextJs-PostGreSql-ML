@@ -8,19 +8,9 @@ from alembic import context
 # Import all models here
 from app.database import Base
 from app.models.user import User
-from app.models.department import Department
 from app.models.employee import Employee
-from app.models.rank import Rank
 from app.models.role import Role
 from app.models.permission import Permission
-from app.models.notification import Notification
-from app.models.leave import Leave
-from app.models.timesheet import Timesheet
-from app.models.attendance import Attendance
-from app.models.employee_salary import EmployeeSalary
-from app.models.salary_structure import SalaryStructure
-from app.models.salary_history import SalaryHistory
-from app.models.payslip import Payslip
 from app.models.association_tables import *
 
 # this is the Alembic Config object, which provides
