@@ -1,0 +1,501 @@
+customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,Churn
+8270-DDDD,Female,0,Yes,No,71,No,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Electronic check,80.11,6378.49,Yes
+1769-DDDD,Male,1,No,No,63,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,One year,Yes,Electronic check,72.48,3610.75,Yes
+3747-FFFF,Male,0,No,No,50,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,65.05,139.12,No
+9433-BBBB,Female,1,Yes,No,1,Yes,No,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Bank transfer (automatic),110.93,2343.84,Yes
+8555-BBBB,Male,1,No,No,3,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,One year,No,Mailed check,92.73,2952.34,Yes
+2016-FFFF,Male,0,No,No,52,Yes,No,DSL,Yes,No,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),36.53,160.41,No
+6463-AAAA,Male,1,No,No,62,No,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,55.85,1060.5,No
+9392-DDDD,Male,0,No,No,22,Yes,No,DSL,No,No,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,58.29,8745.97,No
+4840-EEEE,Male,0,Yes,No,13,No,No phone service,DSL,No,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),23.14,5734.97,Yes
+6116-DDDD,Male,0,Yes,No,14,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Mailed check,82.44,2674.79,No
+3693-DDDD,Male,1,No,No,29,Yes,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,47.21,5836.26,No
+6864-CCCC,Female,1,No,No,26,No,No,DSL,No,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),52.32,4678.74,No
+4763-AAAA,Male,0,No,No,51,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Electronic check,46.68,8790.0,Yes
+1854-EEEE,Male,0,Yes,No,18,Yes,No,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),96.16,2153.99,No
+5389-EEEE,Male,1,No,No,10,No,No,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Electronic check,105.84,2947.11,Yes
+7546-BBBB,Female,0,Yes,No,19,Yes,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,No,Electronic check,87.57,6622.24,Yes
+6534-FFFF,Male,0,Yes,No,15,Yes,No,DSL,Yes,No,No,Yes,No,No,Month-to-month,No,Mailed check,109.72,8105.75,No
+8158-AAAA,Female,0,Yes,No,47,Yes,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,No,Bank transfer (automatic),113.56,7072.36,Yes
+9445-CCCC,Male,1,Yes,No,24,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,42.43,6415.37,No
+5493-EEEE,Male,1,No,No,7,No,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,46.52,2211.03,Yes
+4436-CCCC,Male,1,Yes,No,26,Yes,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,Yes,Electronic check,69.92,5156.6,Yes
+8679-AAAA,Male,1,No,No,45,No,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Mailed check,116.67,8673.31,No
+1190-EEEE,Female,1,Yes,No,32,Yes,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),77.01,892.64,Yes
+5014-FFFF,Female,1,Yes,No,26,Yes,No,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),49.36,7288.06,No
+2841-AAAA,Male,0,No,No,6,No,No,DSL,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,109.0,3055.2,Yes
+6919-FFFF,Female,0,No,No,62,Yes,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,No,Mailed check,50.33,4843.0,No
+4124-DDDD,Male,1,Yes,No,67,Yes,No phone service,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Electronic check,116.95,6437.06,No
+5752-CCCC,Male,1,Yes,No,61,No,No phone service,DSL,Yes,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),45.02,4952.06,Yes
+4672-EEEE,Female,0,No,No,60,No,No,DSL,No,No,No,No,No,No,Month-to-month,No,Mailed check,55.6,6825.46,No
+6188-AAAA,Male,1,No,No,68,Yes,No,Fiber optic,Yes,No,No,No,No,No,One year,Yes,Mailed check,63.39,3598.57,Yes
+3849-DDDD,Female,1,No,No,18,Yes,No,DSL,Yes,Yes,No,Yes,No,No,One year,No,Bank transfer (automatic),114.43,7807.45,Yes
+1851-DDDD,Male,0,No,No,32,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,Yes,Mailed check,40.67,2480.17,Yes
+6726-FFFF,Male,0,Yes,No,34,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,46.07,4474.42,Yes
+8668-BBBB,Female,0,Yes,No,35,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),119.05,3725.31,Yes
+6104-FFFF,Male,0,No,No,54,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,52.0,8061.8,No
+1395-EEEE,Female,0,No,No,8,No,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Electronic check,29.17,5429.92,Yes
+6588-DDDD,Female,0,No,No,56,No,No phone service,DSL,Yes,No,No,Yes,No,No,Month-to-month,No,Electronic check,93.7,4922.32,No
+7801-DDDD,Female,1,No,No,16,No,No,DSL,Yes,Yes,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),90.62,750.51,No
+6541-CCCC,Male,1,Yes,No,64,Yes,No,DSL,No,Yes,No,No,No,No,One year,No,Mailed check,90.82,4345.37,Yes
+6301-CCCC,Male,1,Yes,No,38,Yes,No phone service,DSL,No,No,Yes,Yes,No,No,One year,No,Electronic check,102.28,6703.02,No
+1504-DDDD,Female,0,No,No,32,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),109.11,4758.76,No
+6348-DDDD,Female,0,No,No,56,Yes,No phone service,DSL,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,78.43,8112.4,No
+8114-DDDD,Male,1,No,No,71,Yes,No,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,58.83,2079.96,Yes
+5964-AAAA,Male,1,Yes,No,62,No,No phone service,DSL,No,No,No,Yes,No,No,One year,Yes,Electronic check,111.09,7406.38,Yes
+8026-EEEE,Female,0,No,No,9,Yes,No,Fiber optic,No,Yes,No,No,No,No,One year,Yes,Mailed check,101.06,8885.74,No
+8449-AAAA,Male,0,Yes,No,48,No,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),106.47,7319.85,No
+6989-CCCC,Female,0,Yes,No,52,No,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,115.41,5463.45,Yes
+5544-AAAA,Male,1,No,No,71,No,No,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,No,Electronic check,75.19,5057.22,Yes
+5858-AAAA,Female,1,Yes,No,46,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,81.73,8824.56,Yes
+7241-BBBB,Male,0,Yes,No,50,No,No,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Mailed check,82.21,7764.03,No
+5892-DDDD,Male,1,Yes,No,16,Yes,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Mailed check,83.34,2176.51,No
+7254-AAAA,Female,0,No,No,15,Yes,No,Fiber optic,Yes,No,No,No,No,No,One year,Yes,Bank transfer (automatic),86.76,1567.43,Yes
+8570-EEEE,Female,1,No,No,41,No,No,DSL,Yes,Yes,No,No,No,No,One year,No,Mailed check,56.43,4540.69,No
+8240-BBBB,Female,0,Yes,No,55,Yes,No phone service,DSL,Yes,Yes,No,Yes,No,No,One year,Yes,Electronic check,79.73,8876.59,No
+1638-FFFF,Male,1,No,No,1,No,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),71.17,4798.38,No
+4345-BBBB,Male,0,Yes,No,14,Yes,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),28.92,4827.31,No
+7288-EEEE,Male,0,No,No,9,No,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),94.54,3896.3,No
+3472-EEEE,Male,1,No,No,63,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,30.18,1392.68,No
+7767-DDDD,Male,0,No,No,61,Yes,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,118.24,1026.11,Yes
+9659-DDDD,Female,1,Yes,No,5,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),73.5,4300.04,No
+7469-BBBB,Male,1,Yes,No,19,No,No,DSL,No,No,Yes,Yes,No,No,One year,Yes,Mailed check,35.44,4340.64,No
+4744-FFFF,Male,1,No,No,4,No,No,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),88.15,6846.85,No
+4490-FFFF,Female,0,Yes,No,61,Yes,No,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),26.65,6675.26,Yes
+6951-EEEE,Male,0,Yes,No,13,Yes,No,DSL,No,Yes,No,No,No,No,Month-to-month,No,Mailed check,110.79,2859.45,Yes
+3136-BBBB,Male,1,Yes,No,13,Yes,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,55.54,3535.51,Yes
+2997-EEEE,Male,1,Yes,No,38,No,No,Fiber optic,No,Yes,No,Yes,No,No,One year,No,Bank transfer (automatic),107.86,4468.9,Yes
+1922-DDDD,Female,1,Yes,No,26,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,54.21,7394.89,No
+7371-EEEE,Male,1,No,No,14,No,No,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),84.11,6251.66,Yes
+1793-CCCC,Female,0,No,No,10,Yes,No,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,No,Mailed check,81.5,8208.43,Yes
+1984-AAAA,Female,1,No,No,42,Yes,No,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),35.25,5195.07,Yes
+7024-FFFF,Female,0,No,No,39,No,No,DSL,No,Yes,Yes,No,No,No,Month-to-month,No,Mailed check,38.63,7540.67,No
+2854-FFFF,Female,0,No,No,14,No,No phone service,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,53.35,3595.55,No
+2625-CCCC,Male,1,Yes,No,33,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,69.84,3781.95,Yes
+7320-EEEE,Female,0,No,No,25,Yes,No,DSL,No,Yes,No,Yes,No,No,Month-to-month,Yes,Mailed check,106.06,4824.93,Yes
+7704-AAAA,Male,0,No,No,50,No,No,DSL,Yes,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,67.21,5092.27,Yes
+1768-FFFF,Female,0,No,No,65,Yes,No,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Electronic check,53.44,698.02,No
+5873-BBBB,Female,1,No,No,54,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),43.11,6053.6,No
+9519-FFFF,Female,0,Yes,No,66,No,No phone service,Fiber optic,No,No,Yes,No,No,No,One year,No,Mailed check,80.32,7265.51,Yes
+5547-DDDD,Female,1,Yes,No,13,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,22.65,1649.29,Yes
+2308-DDDD,Male,1,Yes,No,46,No,No,DSL,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,54.52,6969.03,No
+8083-CCCC,Male,1,No,No,23,No,No,Fiber optic,Yes,Yes,Yes,No,No,No,One year,No,Electronic check,68.48,4621.87,No
+3599-BBBB,Female,0,Yes,No,21,No,No,Fiber optic,Yes,No,No,No,No,No,One year,Yes,Electronic check,21.84,8230.4,No
+6475-AAAA,Male,1,Yes,No,36,No,No,Fiber optic,Yes,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),110.0,7867.53,Yes
+9801-DDDD,Female,0,Yes,No,70,Yes,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,36.63,6647.54,No
+5788-DDDD,Female,1,Yes,No,20,No,No,DSL,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),114.93,3581.91,Yes
+5853-FFFF,Female,1,Yes,No,35,No,No,DSL,No,No,No,No,No,No,One year,Yes,Electronic check,35.47,5617.53,Yes
+2524-AAAA,Female,1,Yes,No,0,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,Yes,Mailed check,99.94,6258.37,Yes
+5197-BBBB,Male,0,Yes,No,43,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),28.67,8624.37,No
+6895-EEEE,Female,0,Yes,No,69,Yes,No phone service,Fiber optic,No,No,No,No,No,No,One year,Yes,Electronic check,86.99,416.61,Yes
+5806-AAAA,Female,1,Yes,No,6,Yes,No phone service,DSL,No,Yes,No,Yes,No,No,One year,No,Bank transfer (automatic),114.43,4278.44,Yes
+3419-CCCC,Male,0,No,No,16,Yes,No phone service,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Electronic check,73.03,3980.47,No
+9230-AAAA,Male,0,No,No,24,No,No,DSL,Yes,Yes,Yes,Yes,No,No,One year,No,Bank transfer (automatic),66.19,8913.26,No
+4810-CCCC,Female,1,No,No,28,Yes,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),59.83,843.46,No
+4430-DDDD,Female,0,No,No,48,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,One year,No,Electronic check,24.21,180.51,Yes
+3632-AAAA,Female,1,No,No,11,No,No,DSL,No,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),114.47,4217.27,No
+8878-DDDD,Male,0,No,No,19,No,No phone service,Fiber optic,No,Yes,No,Yes,No,No,One year,Yes,Mailed check,58.41,349.85,Yes
+7402-FFFF,Female,0,No,No,46,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,71.52,4430.85,No
+9194-CCCC,Male,0,No,No,67,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,108.87,8601.75,Yes
+1954-BBBB,Male,1,Yes,No,37,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,109.45,8923.45,Yes
+1317-EEEE,Female,1,Yes,No,55,Yes,No,Fiber optic,No,Yes,No,No,No,No,One year,No,Bank transfer (automatic),106.82,2222.66,No
+2704-EEEE,Female,0,Yes,No,52,Yes,No,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,107.18,282.64,No
+8561-CCCC,Female,1,Yes,No,30,Yes,No,Fiber optic,Yes,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,81.69,8831.05,No
+8009-DDDD,Male,1,Yes,No,34,Yes,No,DSL,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),59.22,1631.89,No
+6084-FFFF,Male,1,No,No,67,No,No,DSL,Yes,No,No,Yes,No,No,One year,Yes,Mailed check,82.09,430.76,Yes
+8437-EEEE,Male,1,Yes,No,51,No,No,DSL,No,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),45.25,29.24,Yes
+4356-DDDD,Female,0,Yes,No,38,No,No phone service,DSL,No,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,43.01,1199.39,No
+3896-FFFF,Male,1,No,No,20,No,No,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),51.2,2900.27,Yes
+4598-BBBB,Female,0,No,No,24,Yes,No,Fiber optic,No,No,Yes,No,No,No,One year,No,Mailed check,40.37,838.66,Yes
+9782-CCCC,Male,1,No,No,70,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,66.21,31.06,No
+2875-DDDD,Female,1,No,No,59,No,No,Fiber optic,No,Yes,Yes,Yes,No,No,One year,Yes,Electronic check,34.96,4192.1,Yes
+2389-FFFF,Male,0,Yes,No,32,Yes,No,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Electronic check,30.28,5146.72,No
+9783-FFFF,Male,1,No,No,32,Yes,No,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Electronic check,55.06,318.16,Yes
+8833-FFFF,Female,1,No,No,45,Yes,No,DSL,Yes,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),32.42,8068.07,No
+7917-AAAA,Female,0,No,No,40,Yes,No,Fiber optic,Yes,No,Yes,Yes,No,No,One year,No,Bank transfer (automatic),101.48,739.43,Yes
+1207-DDDD,Male,1,No,No,25,No,No phone service,DSL,No,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,79.33,5859.64,No
+2266-BBBB,Female,0,No,No,44,Yes,No phone service,DSL,No,Yes,Yes,No,No,No,One year,No,Mailed check,91.92,2071.52,Yes
+9503-AAAA,Female,0,No,No,34,No,No phone service,Fiber optic,No,Yes,No,No,No,No,One year,Yes,Mailed check,116.08,3754.85,Yes
+9595-EEEE,Male,1,No,No,19,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Electronic check,59.55,5463.57,No
+2394-BBBB,Male,0,No,No,2,No,No,Fiber optic,No,Yes,No,No,No,No,One year,No,Mailed check,37.97,2153.14,Yes
+1001-EEEE,Female,1,Yes,No,40,Yes,No,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,29.53,5876.07,No
+9219-BBBB,Female,0,Yes,No,64,Yes,No,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,27.35,1544.43,Yes
+6724-BBBB,Male,1,Yes,No,0,No,No,Fiber optic,No,No,No,No,No,No,One year,No,Electronic check,80.55,3223.45,Yes
+4568-DDDD,Male,1,Yes,No,5,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,113.66,373.3,No
+2058-FFFF,Female,0,Yes,No,68,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),20.49,8567.27,Yes
+6342-CCCC,Male,0,No,No,37,Yes,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,No,Bank transfer (automatic),36.24,1711.37,No
+7812-FFFF,Female,0,No,No,46,Yes,No phone service,DSL,No,No,No,Yes,No,No,One year,No,Mailed check,81.78,7822.77,Yes
+1986-AAAA,Male,1,Yes,No,0,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,No,Mailed check,85.78,8994.74,Yes
+1574-AAAA,Female,0,Yes,No,47,No,No phone service,DSL,No,Yes,No,No,No,No,One year,No,Electronic check,96.52,8332.56,No
+4553-BBBB,Female,0,Yes,No,0,Yes,No,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Mailed check,59.62,6265.3,Yes
+6592-AAAA,Female,1,Yes,No,34,Yes,No,Fiber optic,No,Yes,Yes,Yes,No,No,One year,No,Mailed check,66.35,3430.48,Yes
+7471-BBBB,Male,1,Yes,No,25,No,No,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),59.44,4953.74,Yes
+7570-EEEE,Female,0,Yes,No,46,No,No,DSL,No,No,No,No,No,No,Month-to-month,No,Electronic check,67.92,1767.13,Yes
+7012-DDDD,Male,0,No,No,26,No,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,No,Mailed check,59.99,8790.99,Yes
+5445-CCCC,Female,0,No,No,38,No,No phone service,DSL,No,No,No,Yes,No,No,Month-to-month,No,Mailed check,100.6,4961.03,Yes
+7284-FFFF,Male,0,No,No,8,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Electronic check,43.69,7029.12,Yes
+7807-CCCC,Male,1,Yes,No,17,No,No,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),106.93,4266.57,No
+9853-EEEE,Female,0,No,No,70,Yes,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Electronic check,118.78,1245.23,No
+7780-AAAA,Female,0,Yes,No,23,Yes,No,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Electronic check,27.94,789.21,No
+8843-CCCC,Female,1,Yes,No,69,No,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),84.02,2454.9,Yes
+9258-FFFF,Male,0,No,No,2,Yes,No,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,64.64,3015.45,Yes
+4374-AAAA,Female,1,No,No,61,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),112.72,2127.09,Yes
+7770-FFFF,Female,1,No,No,64,No,No,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Electronic check,80.85,4571.41,Yes
+3785-EEEE,Male,1,Yes,No,22,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,50.55,3584.89,No
+2689-DDDD,Male,0,No,No,34,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),59.72,4866.8,No
+2826-FFFF,Male,1,No,No,5,No,No,DSL,Yes,No,No,No,No,No,Month-to-month,Yes,Mailed check,35.38,2028.06,Yes
+6907-BBBB,Male,1,Yes,No,65,No,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Mailed check,102.93,2871.43,No
+2960-FFFF,Female,0,Yes,No,7,No,No,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Electronic check,113.64,7887.42,No
+6947-FFFF,Male,0,Yes,No,1,Yes,No phone service,DSL,No,Yes,No,No,No,No,One year,No,Electronic check,25.82,8953.9,No
+6175-AAAA,Female,0,Yes,No,20,No,No,Fiber optic,Yes,Yes,No,Yes,No,No,One year,No,Electronic check,70.94,8970.34,No
+2382-DDDD,Male,0,No,No,35,Yes,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,55.42,4739.03,Yes
+2549-EEEE,Female,1,Yes,No,54,Yes,No,DSL,No,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),33.71,4827.08,No
+7356-BBBB,Male,0,Yes,No,52,Yes,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),65.44,7602.33,No
+8961-FFFF,Male,1,No,No,51,No,No,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Electronic check,85.87,8486.62,Yes
+1571-EEEE,Female,1,No,No,57,Yes,No,Fiber optic,No,No,No,No,No,No,One year,No,Bank transfer (automatic),65.01,2058.14,No
+8099-EEEE,Female,0,No,No,43,No,No phone service,DSL,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,27.21,659.89,Yes
+2668-DDDD,Female,1,No,No,30,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),37.41,903.59,Yes
+6439-BBBB,Male,0,No,No,7,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,46.07,641.9,No
+9569-FFFF,Female,1,No,No,20,Yes,No,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),72.08,5556.17,Yes
+9714-BBBB,Female,0,No,No,17,No,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,114.31,2181.42,No
+1685-AAAA,Male,0,Yes,No,31,Yes,No phone service,DSL,No,No,No,No,No,No,One year,Yes,Electronic check,42.11,8806.01,Yes
+8527-FFFF,Female,0,No,No,21,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,One year,Yes,Electronic check,92.6,7363.71,No
+5082-DDDD,Female,1,Yes,No,36,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Mailed check,107.33,5733.9,Yes
+4300-BBBB,Male,1,No,No,0,Yes,No phone service,DSL,No,No,Yes,No,No,No,One year,No,Mailed check,85.76,2812.14,No
+4967-FFFF,Female,0,Yes,No,65,No,No,DSL,No,No,Yes,Yes,No,No,One year,No,Mailed check,23.53,6716.69,Yes
+4489-EEEE,Female,1,Yes,No,15,No,No phone service,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),64.86,6504.2,Yes
+2013-CCCC,Male,0,No,No,53,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Electronic check,29.3,5302.06,Yes
+4292-FFFF,Female,1,Yes,No,57,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,One year,No,Bank transfer (automatic),46.98,7428.94,No
+4390-FFFF,Female,1,No,No,29,Yes,No,DSL,No,No,Yes,No,No,No,One year,Yes,Mailed check,52.82,3917.49,Yes
+1830-DDDD,Female,0,No,No,46,No,No phone service,Fiber optic,Yes,Yes,No,No,No,No,One year,No,Bank transfer (automatic),31.83,3700.95,Yes
+3171-CCCC,Female,0,No,No,15,No,No phone service,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,78.58,5286.58,Yes
+4920-CCCC,Female,0,Yes,No,18,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,One year,Yes,Electronic check,63.52,8437.43,Yes
+4331-FFFF,Female,0,No,No,34,No,No,DSL,Yes,No,No,Yes,No,No,One year,No,Electronic check,95.14,5919.46,Yes
+7868-FFFF,Male,1,No,No,29,Yes,No,DSL,No,Yes,Yes,Yes,No,No,One year,No,Mailed check,62.89,7606.21,Yes
+6675-AAAA,Female,1,No,No,56,No,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Mailed check,93.24,4943.92,Yes
+7342-EEEE,Male,1,No,No,13,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Electronic check,76.53,4186.11,No
+7588-AAAA,Female,1,Yes,No,67,No,No,DSL,No,No,No,No,No,No,Month-to-month,No,Electronic check,42.74,3647.72,No
+7566-FFFF,Female,0,No,No,69,Yes,No,Fiber optic,No,No,No,No,No,No,One year,No,Electronic check,86.9,4171.41,Yes
+4750-FFFF,Male,1,Yes,No,39,Yes,No,DSL,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),107.21,4912.73,Yes
+6774-EEEE,Female,1,No,No,13,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,26.52,4186.1,Yes
+8264-BBBB,Male,0,No,No,38,Yes,No phone service,DSL,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),40.38,4719.5,Yes
+3555-DDDD,Female,1,Yes,No,71,No,No phone service,DSL,No,No,Yes,Yes,No,No,One year,No,Mailed check,99.33,2864.52,No
+1258-CCCC,Male,0,No,No,32,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),51.32,7191.37,Yes
+6906-AAAA,Male,0,No,No,15,No,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Mailed check,117.98,5912.08,Yes
+9004-AAAA,Female,0,No,No,24,Yes,No,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Electronic check,49.65,8265.51,Yes
+8544-CCCC,Male,0,No,No,2,Yes,No,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Mailed check,91.91,3792.67,Yes
+7450-BBBB,Male,0,Yes,No,22,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,One year,Yes,Bank transfer (automatic),83.41,1153.86,Yes
+7049-BBBB,Female,1,No,No,27,No,No phone service,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Bank transfer (automatic),27.71,3076.61,Yes
+7040-FFFF,Female,0,Yes,No,56,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,98.84,5991.56,Yes
+2138-AAAA,Male,0,Yes,No,22,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,One year,Yes,Mailed check,58.04,8791.67,Yes
+6626-DDDD,Female,0,No,No,13,Yes,No,DSL,Yes,No,No,No,No,No,One year,Yes,Bank transfer (automatic),95.4,7248.06,Yes
+8230-AAAA,Female,1,Yes,No,18,No,No,Fiber optic,Yes,No,No,No,No,No,One year,No,Electronic check,44.19,131.39,Yes
+2762-AAAA,Female,1,No,No,40,Yes,No phone service,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,No,Mailed check,109.23,1684.27,No
+8183-EEEE,Male,0,No,No,29,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,45.23,1997.62,Yes
+8156-EEEE,Female,0,Yes,No,67,No,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),28.22,8197.88,Yes
+1526-AAAA,Female,1,No,No,21,Yes,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),71.24,955.94,Yes
+9770-FFFF,Male,1,No,No,33,No,No phone service,DSL,No,No,No,Yes,No,No,One year,No,Electronic check,20.29,377.1,Yes
+9921-CCCC,Male,0,No,No,64,No,No phone service,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,No,Electronic check,67.43,5325.99,No
+6093-AAAA,Male,0,No,No,7,No,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,59.68,418.6,No
+2800-EEEE,Female,0,Yes,No,20,No,No phone service,DSL,No,Yes,No,No,No,No,One year,Yes,Mailed check,119.28,1200.77,Yes
+4628-AAAA,Male,1,Yes,No,71,Yes,No phone service,DSL,No,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,115.51,7394.36,Yes
+9365-FFFF,Female,0,Yes,No,48,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,29.23,5374.97,Yes
+4808-DDDD,Male,0,Yes,No,40,No,No,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,21.01,5732.14,Yes
+8544-DDDD,Female,1,No,No,26,No,No,DSL,Yes,Yes,Yes,Yes,No,No,One year,No,Electronic check,89.49,4801.78,No
+2856-EEEE,Female,1,Yes,No,61,No,No phone service,DSL,No,Yes,Yes,No,No,No,One year,No,Electronic check,89.25,3880.78,No
+4500-AAAA,Female,1,No,No,29,Yes,No,Fiber optic,Yes,Yes,No,Yes,No,No,One year,Yes,Electronic check,63.1,2883.42,Yes
+2141-DDDD,Male,0,No,No,38,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,One year,Yes,Electronic check,114.66,3071.12,Yes
+8611-BBBB,Male,0,Yes,No,10,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,65.4,6200.7,No
+7980-FFFF,Male,1,Yes,No,66,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),36.0,229.7,No
+7268-EEEE,Male,1,Yes,No,36,Yes,No,DSL,No,Yes,Yes,Yes,No,No,One year,No,Electronic check,118.4,2609.88,No
+6619-AAAA,Female,1,No,No,21,Yes,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,103.36,3975.16,Yes
+2439-EEEE,Female,1,Yes,No,45,No,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),33.92,4007.51,No
+7652-AAAA,Female,1,No,No,23,Yes,No phone service,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,74.3,2065.19,Yes
+4162-EEEE,Male,0,No,No,44,No,No,Fiber optic,No,No,No,No,No,No,One year,Yes,Electronic check,88.08,4211.7,Yes
+1882-CCCC,Male,1,No,No,51,Yes,No,DSL,No,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,96.18,3491.13,No
+3808-CCCC,Male,0,Yes,No,52,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),115.6,1820.26,No
+2863-DDDD,Female,0,Yes,No,71,No,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Electronic check,112.64,191.66,Yes
+5117-EEEE,Male,0,Yes,No,53,Yes,No,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),41.07,8617.88,No
+8537-BBBB,Female,1,Yes,No,29,No,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,95.34,6924.93,Yes
+9392-AAAA,Male,0,No,No,62,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,One year,No,Bank transfer (automatic),26.6,3152.41,No
+1187-EEEE,Female,1,No,No,44,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,99.45,6369.64,Yes
+7465-BBBB,Male,0,No,No,30,Yes,No,DSL,No,No,No,Yes,No,No,One year,No,Bank transfer (automatic),110.61,2907.03,No
+3368-AAAA,Female,1,Yes,No,12,No,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),70.31,4055.16,Yes
+8651-FFFF,Male,1,No,No,13,Yes,No,Fiber optic,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),32.0,8252.79,Yes
+6585-DDDD,Female,0,No,No,33,Yes,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Electronic check,20.01,4609.94,Yes
+2809-FFFF,Male,0,Yes,No,49,Yes,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),102.67,1186.77,No
+6793-DDDD,Male,1,No,No,14,No,No phone service,DSL,No,No,Yes,Yes,No,No,One year,Yes,Electronic check,31.6,399.78,No
+8094-BBBB,Female,0,Yes,No,20,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),114.4,2435.33,Yes
+8122-CCCC,Male,0,No,No,16,No,No,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,83.44,6941.61,No
+6574-AAAA,Female,1,Yes,No,12,Yes,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,Month-to-month,No,Mailed check,41.57,6106.76,No
+2772-BBBB,Female,1,No,No,6,Yes,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,39.92,8014.13,Yes
+1234-CCCC,Female,0,Yes,No,53,Yes,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,53.73,193.56,Yes
+5493-BBBB,Female,0,Yes,No,16,Yes,No,Fiber optic,Yes,Yes,No,No,No,No,One year,No,Mailed check,87.75,2820.54,Yes
+3745-DDDD,Female,1,Yes,No,41,No,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Electronic check,54.18,6656.46,No
+3803-AAAA,Male,1,No,No,42,No,No,DSL,No,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),102.98,5463.2,Yes
+9835-CCCC,Female,0,Yes,No,27,No,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,No,Electronic check,43.92,4786.02,Yes
+7683-FFFF,Female,0,Yes,No,70,Yes,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Electronic check,101.11,5730.87,No
+8006-DDDD,Female,0,Yes,No,48,No,No,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,89.0,6217.07,Yes
+8763-DDDD,Female,0,No,No,53,No,No,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Electronic check,116.23,5595.76,Yes
+3645-FFFF,Male,1,No,No,45,No,No phone service,Fiber optic,No,No,Yes,No,No,No,One year,No,Electronic check,25.0,7595.97,Yes
+7474-EEEE,Male,0,Yes,No,27,Yes,No,DSL,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),118.11,5134.47,No
+9548-AAAA,Male,0,Yes,No,54,Yes,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),55.5,6290.83,No
+9436-BBBB,Male,0,No,No,12,Yes,No,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),98.13,8642.31,Yes
+6973-EEEE,Male,1,Yes,No,36,Yes,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,42.21,2908.6,Yes
+4638-CCCC,Male,0,Yes,No,66,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,Yes,Bank transfer (automatic),115.48,4462.18,No
+5422-AAAA,Female,1,No,No,34,No,No phone service,DSL,No,No,Yes,No,No,No,One year,Yes,Electronic check,76.41,3240.03,Yes
+4008-BBBB,Female,1,No,No,19,Yes,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Electronic check,37.52,7803.6,No
+3780-DDDD,Female,1,Yes,No,55,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),109.41,8519.18,Yes
+8812-EEEE,Male,1,Yes,No,14,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),23.28,5731.66,No
+1270-CCCC,Female,0,Yes,No,23,No,No,DSL,No,No,Yes,No,No,No,One year,No,Mailed check,102.48,4650.62,No
+7614-EEEE,Male,1,Yes,No,68,No,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Mailed check,56.22,6513.69,Yes
+7534-FFFF,Female,0,No,No,2,Yes,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),84.06,3755.18,No
+2849-BBBB,Male,1,Yes,No,24,Yes,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,60.58,1999.99,Yes
+9501-EEEE,Male,0,No,No,58,No,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,No,Electronic check,46.88,5663.34,Yes
+3832-DDDD,Male,1,Yes,No,24,No,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,113.29,7451.01,Yes
+4854-CCCC,Male,0,Yes,No,22,Yes,No phone service,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Electronic check,34.22,1936.27,Yes
+3292-CCCC,Female,0,Yes,No,46,No,No phone service,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,No,Mailed check,21.61,7043.9,No
+3535-FFFF,Male,0,No,No,33,No,No phone service,Fiber optic,Yes,Yes,No,No,No,No,One year,Yes,Electronic check,116.7,483.99,No
+2476-CCCC,Male,1,No,No,12,Yes,No,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,100.88,6100.83,Yes
+4093-CCCC,Female,0,No,No,6,Yes,No,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,44.75,1482.08,No
+1112-DDDD,Male,0,Yes,No,4,No,No,DSL,Yes,Yes,No,No,No,No,One year,No,Electronic check,26.84,7058.16,Yes
+1049-AAAA,Female,1,Yes,No,65,Yes,No phone service,DSL,Yes,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),31.62,7033.34,Yes
+6941-EEEE,Male,1,Yes,No,23,Yes,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,37.94,8736.68,No
+2988-BBBB,Male,1,Yes,No,48,No,No phone service,Fiber optic,No,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),46.85,2601.41,Yes
+7309-FFFF,Male,0,Yes,No,38,No,No phone service,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),82.36,5843.57,Yes
+3849-FFFF,Female,1,Yes,No,26,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),79.77,7797.54,No
+3642-BBBB,Female,1,Yes,No,58,Yes,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,One year,No,Mailed check,88.01,3685.2,No
+5396-DDDD,Female,0,Yes,No,35,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,One year,No,Mailed check,117.7,935.0,Yes
+2818-FFFF,Male,0,No,No,24,Yes,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),78.95,5527.36,No
+5017-DDDD,Female,1,Yes,No,22,No,No,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Electronic check,27.71,8202.29,No
+9252-BBBB,Female,1,No,No,32,No,No,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),102.3,8395.74,No
+2993-FFFF,Female,0,No,No,7,No,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),46.89,3328.67,Yes
+5744-BBBB,Male,0,Yes,No,1,No,No,DSL,No,No,Yes,Yes,No,No,One year,No,Mailed check,84.93,8427.8,Yes
+8697-BBBB,Female,1,No,No,10,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,22.83,1906.06,No
+4074-FFFF,Male,1,Yes,No,0,Yes,No,DSL,Yes,Yes,No,No,No,No,One year,No,Electronic check,94.68,6490.68,No
+1802-DDDD,Female,0,No,No,11,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,102.86,7107.85,No
+3591-EEEE,Male,1,No,No,48,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,75.34,4538.13,Yes
+3472-FFFF,Female,1,Yes,No,66,Yes,No phone service,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,92.19,3475.54,Yes
+7038-EEEE,Female,0,No,No,65,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,61.42,6597.08,No
+8117-BBBB,Male,0,No,No,35,Yes,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Mailed check,46.76,3034.35,Yes
+5507-CCCC,Female,0,Yes,No,32,Yes,No phone service,DSL,No,No,Yes,No,No,No,One year,Yes,Electronic check,70.01,3719.38,Yes
+2920-BBBB,Female,1,Yes,No,47,No,No phone service,Fiber optic,No,Yes,No,Yes,No,No,One year,No,Electronic check,40.63,3538.9,No
+6126-BBBB,Female,0,Yes,No,64,No,No,DSL,No,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,82.84,6203.91,Yes
+4893-DDDD,Female,1,No,No,64,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,73.16,4604.84,No
+6057-AAAA,Female,0,Yes,No,10,No,No,Fiber optic,No,No,Yes,No,No,No,One year,No,Mailed check,26.7,7898.61,Yes
+7328-DDDD,Female,1,No,No,56,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,75.91,2904.04,No
+1002-FFFF,Male,1,No,No,58,No,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Bank transfer (automatic),112.93,3425.45,Yes
+1670-DDDD,Male,0,No,No,47,No,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Mailed check,100.3,4671.71,No
+6330-DDDD,Female,0,Yes,No,8,No,No,Fiber optic,No,No,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),63.32,6973.24,Yes
+6876-FFFF,Male,1,No,No,41,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Electronic check,41.49,3835.16,Yes
+9841-DDDD,Female,0,No,No,1,Yes,No,DSL,Yes,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,89.24,2391.28,Yes
+7204-AAAA,Male,0,No,No,27,No,No,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),97.68,7398.4,Yes
+5933-DDDD,Male,0,No,No,32,Yes,No,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),102.43,5677.76,Yes
+1689-FFFF,Female,1,No,No,58,Yes,No,DSL,No,Yes,Yes,No,No,No,One year,No,Mailed check,94.8,7318.17,No
+6669-CCCC,Male,1,Yes,No,60,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),24.04,3712.5,No
+3850-DDDD,Female,0,Yes,No,53,No,No,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),96.44,5621.21,Yes
+7047-CCCC,Male,0,Yes,No,68,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),64.23,6372.43,No
+8832-DDDD,Male,0,Yes,No,23,No,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),64.31,4457.45,Yes
+6232-BBBB,Male,1,Yes,No,13,No,No,DSL,No,No,No,No,No,No,One year,No,Bank transfer (automatic),112.5,5692.16,No
+2448-CCCC,Female,0,Yes,No,53,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,65.52,6016.49,No
+5749-BBBB,Male,1,No,No,32,No,No phone service,DSL,No,No,Yes,Yes,No,No,One year,No,Mailed check,73.59,4406.69,Yes
+5108-EEEE,Male,0,Yes,No,65,Yes,No,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,62.33,779.4,Yes
+3387-DDDD,Female,1,No,No,61,No,No phone service,Fiber optic,No,Yes,No,Yes,No,No,One year,Yes,Electronic check,100.01,7963.56,No
+3259-EEEE,Male,0,Yes,No,56,Yes,No phone service,DSL,No,No,Yes,Yes,No,No,One year,Yes,Electronic check,117.53,7356.43,Yes
+7953-FFFF,Female,0,No,No,10,Yes,No,DSL,Yes,No,Yes,No,No,No,One year,No,Mailed check,114.24,691.89,No
+7628-DDDD,Female,0,No,No,39,Yes,No,Fiber optic,Yes,Yes,Yes,No,No,No,One year,No,Electronic check,43.25,1184.52,No
+8587-EEEE,Female,1,No,No,25,Yes,No,DSL,Yes,No,Yes,No,No,No,One year,Yes,Bank transfer (automatic),29.86,7467.24,No
+3011-FFFF,Male,1,Yes,No,63,Yes,No,Fiber optic,Yes,No,Yes,No,No,No,One year,No,Mailed check,107.54,3986.88,No
+8657-AAAA,Female,1,Yes,No,55,Yes,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,No,Electronic check,106.22,2838.6,No
+5774-EEEE,Female,1,Yes,No,39,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,103.82,3265.41,No
+5143-BBBB,Male,0,Yes,No,67,No,No phone service,Fiber optic,Yes,No,No,No,No,No,Month-to-month,Yes,Electronic check,71.01,6631.43,Yes
+2881-FFFF,Female,1,No,No,38,Yes,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,No,Electronic check,47.86,1984.01,No
+7901-BBBB,Male,1,No,No,37,Yes,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,56.74,801.41,No
+6918-EEEE,Female,0,No,No,51,No,No phone service,DSL,No,No,No,Yes,No,No,One year,Yes,Bank transfer (automatic),46.32,25.87,No
+3985-BBBB,Female,1,No,No,53,Yes,No phone service,DSL,No,Yes,No,Yes,No,No,One year,No,Mailed check,114.85,8503.1,Yes
+1314-BBBB,Female,0,Yes,No,38,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Mailed check,71.29,6342.67,No
+7751-BBBB,Female,1,No,No,12,No,No phone service,Fiber optic,No,No,No,No,No,No,One year,Yes,Bank transfer (automatic),111.06,4598.49,No
+8069-AAAA,Female,1,Yes,No,53,No,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),66.57,6964.96,No
+6048-CCCC,Male,1,Yes,No,41,Yes,No phone service,DSL,No,Yes,No,No,No,No,Month-to-month,No,Mailed check,87.74,5100.72,No
+5485-FFFF,Male,1,Yes,No,63,No,No,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Electronic check,53.22,2658.11,Yes
+2874-DDDD,Female,0,No,No,18,Yes,No,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Mailed check,47.75,2548.91,Yes
+1307-BBBB,Male,0,Yes,No,59,Yes,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Electronic check,28.9,8925.43,No
+7603-BBBB,Male,1,No,No,26,No,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,No,Electronic check,64.67,4523.63,Yes
+7653-FFFF,Male,0,No,No,19,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),25.56,81.76,Yes
+7305-BBBB,Male,1,Yes,No,3,No,No,DSL,Yes,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),54.21,3881.02,No
+1627-FFFF,Female,1,Yes,No,37,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,Yes,Electronic check,78.36,3523.28,Yes
+3672-CCCC,Male,1,Yes,No,67,No,No,DSL,Yes,Yes,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),61.09,5054.01,Yes
+2008-CCCC,Female,1,Yes,No,52,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),79.48,6655.02,Yes
+3866-FFFF,Female,1,No,No,38,Yes,No phone service,DSL,Yes,Yes,Yes,No,No,No,Month-to-month,No,Mailed check,99.36,305.37,Yes
+7100-BBBB,Female,0,No,No,0,No,No,Fiber optic,No,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,55.92,7415.5,No
+5117-FFFF,Female,0,No,No,7,Yes,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,No,Electronic check,55.83,8217.77,No
+7509-FFFF,Female,1,Yes,No,14,Yes,No phone service,DSL,No,Yes,No,No,No,No,One year,Yes,Mailed check,87.92,707.58,No
+8384-BBBB,Male,0,Yes,No,19,Yes,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,104.49,2031.36,Yes
+8566-CCCC,Female,0,Yes,No,34,No,No phone service,DSL,Yes,No,No,Yes,No,No,One year,No,Electronic check,63.82,8095.36,Yes
+6184-CCCC,Male,1,Yes,No,69,Yes,No,Fiber optic,No,No,No,No,No,No,One year,No,Bank transfer (automatic),22.92,8167.1,Yes
+5524-BBBB,Male,1,Yes,No,65,No,No phone service,Fiber optic,Yes,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),42.04,7977.91,Yes
+3418-BBBB,Female,0,No,No,29,Yes,No,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,No,Mailed check,102.45,1335.0,No
+9069-BBBB,Female,1,No,No,3,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,No,Electronic check,50.85,5165.92,Yes
+7519-CCCC,Female,0,No,No,10,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,105.72,7387.43,No
+8701-AAAA,Male,1,No,No,10,No,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Month-to-month,No,Electronic check,63.1,2754.34,No
+2814-BBBB,Female,0,Yes,No,68,No,No,Fiber optic,No,No,No,Yes,No,No,One year,Yes,Bank transfer (automatic),95.73,8083.72,No
+7782-AAAA,Female,1,Yes,No,47,Yes,No,DSL,No,Yes,No,No,No,No,One year,Yes,Bank transfer (automatic),33.55,2098.65,Yes
+7401-DDDD,Female,1,No,No,53,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Mailed check,114.68,7038.91,No
+9622-BBBB,Male,1,Yes,No,3,No,No,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),33.2,4628.38,No
+8143-DDDD,Male,0,No,No,42,No,No phone service,DSL,No,No,Yes,No,No,No,One year,Yes,Mailed check,29.54,4061.53,No
+7543-FFFF,Male,0,Yes,No,51,Yes,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),41.63,1893.12,No
+8478-DDDD,Female,1,Yes,No,69,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,59.19,6280.53,No
+2909-EEEE,Male,1,No,No,51,No,No,DSL,No,Yes,No,Yes,No,No,One year,No,Bank transfer (automatic),99.05,1287.15,Yes
+9579-BBBB,Male,0,No,No,36,Yes,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Mailed check,70.46,1073.18,Yes
+6308-CCCC,Female,0,No,No,65,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,22.35,3878.01,Yes
+3176-CCCC,Female,0,No,No,70,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,No,Electronic check,85.21,7032.66,No
+6505-BBBB,Male,1,No,No,18,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),87.65,5356.29,Yes
+8984-BBBB,Male,1,No,No,37,Yes,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,Yes,Electronic check,86.11,5877.07,No
+2269-EEEE,Male,0,No,No,26,No,No,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Electronic check,66.53,142.87,Yes
+4809-DDDD,Female,1,No,No,64,No,No,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,59.79,7257.69,No
+3172-EEEE,Male,1,No,No,17,Yes,No,Fiber optic,Yes,No,Yes,Yes,No,No,One year,No,Electronic check,49.34,4738.72,Yes
+5535-AAAA,Male,0,Yes,No,35,Yes,No,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),112.43,2945.89,No
+6581-FFFF,Male,1,No,No,13,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),69.9,2877.99,No
+1371-CCCC,Male,0,Yes,No,30,No,No phone service,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,115.76,5100.39,No
+1325-AAAA,Female,1,No,No,44,No,No,DSL,No,No,No,No,No,No,One year,No,Bank transfer (automatic),28.1,7470.91,Yes
+2367-CCCC,Female,1,No,No,15,No,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Electronic check,60.27,6059.12,Yes
+5103-EEEE,Male,0,Yes,No,2,Yes,No phone service,DSL,No,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,100.41,3844.92,No
+8269-CCCC,Female,0,Yes,No,12,Yes,No phone service,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),39.62,1147.44,Yes
+1857-CCCC,Male,0,Yes,No,27,No,No,Fiber optic,No,No,No,No,No,No,One year,Yes,Bank transfer (automatic),26.67,451.87,Yes
+3657-CCCC,Female,1,No,No,45,Yes,No,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),33.57,8044.84,No
+5362-EEEE,Male,0,No,No,25,Yes,No,Fiber optic,No,Yes,No,No,No,No,One year,Yes,Electronic check,117.52,7502.18,Yes
+6599-AAAA,Female,1,No,No,10,Yes,No,DSL,No,Yes,No,Yes,No,No,One year,Yes,Bank transfer (automatic),54.56,7345.61,No
+8008-DDDD,Male,1,Yes,No,29,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),65.21,8872.53,Yes
+1506-EEEE,Male,1,No,No,37,Yes,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Electronic check,38.05,2376.99,Yes
+7106-DDDD,Female,0,No,No,52,Yes,No,Fiber optic,No,No,No,Yes,No,No,One year,No,Electronic check,24.2,3285.54,No
+5386-EEEE,Male,0,No,No,49,Yes,No phone service,DSL,No,No,Yes,No,No,No,One year,No,Electronic check,34.35,1379.98,No
+5516-AAAA,Female,1,No,No,47,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,No,Mailed check,55.98,2776.61,No
+2478-EEEE,Female,0,No,No,5,Yes,No,Fiber optic,Yes,No,No,No,No,No,One year,Yes,Mailed check,113.59,6056.81,No
+7089-EEEE,Male,1,No,No,26,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,55.15,5501.19,No
+4956-DDDD,Male,1,Yes,No,6,No,No,Fiber optic,Yes,Yes,Yes,No,No,No,One year,Yes,Bank transfer (automatic),102.05,7440.54,Yes
+7748-FFFF,Male,1,Yes,No,5,Yes,No phone service,DSL,No,Yes,No,No,No,No,One year,Yes,Mailed check,36.46,3747.82,No
+9456-BBBB,Female,1,No,No,68,No,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,Yes,Mailed check,28.01,3987.67,No
+6506-CCCC,Male,1,Yes,No,34,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),39.42,4280.43,No
+1556-EEEE,Female,1,Yes,No,59,Yes,No phone service,DSL,No,Yes,No,No,No,No,One year,No,Electronic check,110.28,4733.6,Yes
+3313-CCCC,Male,1,No,No,55,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,One year,No,Mailed check,44.58,3236.09,No
+6649-FFFF,Female,0,No,No,27,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,One year,Yes,Bank transfer (automatic),61.37,5883.7,Yes
+8235-FFFF,Female,1,No,No,66,Yes,No,Fiber optic,Yes,No,Yes,No,No,No,One year,Yes,Electronic check,36.95,477.75,Yes
+9558-BBBB,Male,1,Yes,No,44,Yes,No phone service,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),98.24,8932.78,No
+7681-FFFF,Male,1,Yes,No,43,Yes,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Mailed check,39.48,7298.0,Yes
+6979-DDDD,Female,0,Yes,No,27,No,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),61.58,4946.32,No
+2366-DDDD,Male,1,No,No,27,Yes,No phone service,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,107.96,8165.24,No
+4560-AAAA,Male,0,Yes,No,63,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),44.38,5910.01,No
+6014-CCCC,Female,1,No,No,46,Yes,No phone service,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),89.5,5115.17,No
+3580-BBBB,Male,1,Yes,No,48,No,No,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Mailed check,48.82,78.05,Yes
+3296-EEEE,Male,1,Yes,No,13,Yes,No,DSL,No,Yes,No,No,No,No,One year,Yes,Mailed check,91.44,3267.59,Yes
+2058-FFFF,Female,1,Yes,No,44,No,No,Fiber optic,No,No,No,Yes,No,No,One year,Yes,Bank transfer (automatic),100.84,5512.58,Yes
+6618-AAAA,Female,1,Yes,No,33,Yes,No,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,78.97,625.04,No
+7191-CCCC,Female,0,No,No,9,Yes,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),21.39,5851.42,No
+7297-DDDD,Female,1,Yes,No,51,No,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Electronic check,21.89,6628.54,No
+6214-AAAA,Male,0,No,No,62,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,105.91,4510.52,Yes
+1548-BBBB,Male,1,Yes,No,51,No,No,Fiber optic,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),28.37,3485.74,Yes
+1178-EEEE,Female,0,Yes,No,30,Yes,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Mailed check,77.51,1877.22,Yes
+3933-DDDD,Male,0,Yes,No,58,Yes,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),95.13,8075.02,No
+8088-CCCC,Male,1,Yes,No,29,No,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,Month-to-month,No,Mailed check,51.69,7283.26,Yes
+3220-EEEE,Female,0,No,No,33,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,No,Electronic check,25.38,6030.83,No
+8037-BBBB,Male,0,Yes,No,37,No,No,DSL,Yes,No,No,Yes,No,No,One year,Yes,Mailed check,114.36,7843.84,Yes
+4797-CCCC,Female,0,Yes,No,0,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,50.71,7739.92,No
+2754-FFFF,Female,1,Yes,No,40,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,One year,Yes,Electronic check,50.79,4305.26,Yes
+2412-CCCC,Male,0,No,No,13,No,No,DSL,No,Yes,No,No,No,No,One year,No,Bank transfer (automatic),81.2,2770.58,Yes
+6454-FFFF,Female,0,No,No,35,No,No,DSL,No,No,No,No,No,No,Month-to-month,No,Electronic check,33.93,116.22,No
+7924-AAAA,Male,1,Yes,No,70,No,No phone service,DSL,Yes,Yes,No,Yes,No,No,One year,No,Bank transfer (automatic),45.0,678.81,Yes
+5435-EEEE,Female,0,No,No,34,No,No,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Mailed check,24.61,8378.8,No
+2505-FFFF,Male,0,Yes,No,68,No,No,Fiber optic,Yes,Yes,No,No,No,No,One year,Yes,Electronic check,106.21,966.54,No
+3659-FFFF,Male,1,No,No,33,No,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),63.05,1089.88,Yes
+4153-CCCC,Female,0,No,No,32,Yes,No,DSL,No,No,Yes,Yes,No,No,One year,No,Mailed check,25.38,1725.08,Yes
+3741-EEEE,Female,0,Yes,No,38,No,No,DSL,No,No,No,Yes,No,No,Month-to-month,No,Mailed check,73.5,358.53,No
+7391-BBBB,Male,0,No,No,69,Yes,No,DSL,Yes,No,No,Yes,No,No,One year,Yes,Electronic check,90.64,3123.3,No
+2867-BBBB,Female,1,Yes,No,69,Yes,No,Fiber optic,No,No,Yes,No,No,No,One year,Yes,Electronic check,43.36,632.32,No
+6077-AAAA,Female,1,Yes,No,61,Yes,No phone service,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,30.68,8581.56,Yes
+4830-BBBB,Female,1,No,No,55,Yes,No phone service,Fiber optic,No,Yes,No,Yes,No,No,One year,Yes,Mailed check,39.01,7394.83,No
+3757-EEEE,Female,0,Yes,No,20,No,No,Fiber optic,No,Yes,Yes,Yes,No,No,One year,No,Electronic check,103.64,4532.14,No
+1534-DDDD,Female,0,No,No,33,Yes,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,Yes,Mailed check,36.76,2806.57,No
+2861-FFFF,Male,0,No,No,0,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,Yes,Electronic check,23.98,2480.41,No
+4918-DDDD,Female,1,Yes,No,35,No,No phone service,Fiber optic,No,Yes,No,No,No,No,One year,Yes,Mailed check,30.87,8831.69,No
+4791-FFFF,Female,1,Yes,No,66,No,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,82.54,7278.25,No
+1616-AAAA,Female,1,No,No,5,No,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,62.6,8710.33,No
+6801-CCCC,Male,1,No,No,40,Yes,No phone service,Fiber optic,No,No,No,Yes,No,No,One year,Yes,Mailed check,67.25,3416.46,Yes
+8366-EEEE,Female,0,Yes,No,59,Yes,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),28.71,1835.3,Yes
+5704-AAAA,Male,0,Yes,No,1,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Electronic check,77.04,5242.45,Yes
+2738-EEEE,Female,1,Yes,No,28,Yes,No,DSL,No,No,Yes,Yes,No,No,One year,Yes,Electronic check,52.78,3361.3,No
+1156-DDDD,Male,0,No,No,46,No,No,DSL,No,Yes,No,No,No,No,One year,Yes,Bank transfer (automatic),94.39,8274.49,No
+1153-FFFF,Male,0,No,No,52,No,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,No,Electronic check,51.22,6531.5,No
+9857-CCCC,Male,1,No,No,6,Yes,No,Fiber optic,Yes,No,No,Yes,No,No,One year,Yes,Electronic check,22.0,581.31,Yes
+8367-EEEE,Female,1,No,No,15,Yes,No,DSL,No,No,No,Yes,No,No,One year,No,Bank transfer (automatic),68.47,261.27,Yes
+6694-CCCC,Male,1,Yes,No,25,No,No,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Electronic check,90.73,2284.51,Yes
+8067-DDDD,Male,1,No,No,22,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Bank transfer (automatic),69.24,6313.77,Yes
+9269-CCCC,Male,1,Yes,No,5,No,No,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,52.58,1741.79,Yes
+8727-CCCC,Male,1,Yes,No,52,No,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Bank transfer (automatic),36.55,6365.31,No
+2032-CCCC,Female,1,Yes,No,25,No,No,DSL,No,Yes,Yes,Yes,No,No,One year,No,Electronic check,63.54,8579.02,Yes
+4723-FFFF,Male,0,No,No,33,No,No,Fiber optic,No,Yes,No,Yes,No,No,Month-to-month,Yes,Electronic check,76.44,5413.24,No
+6204-FFFF,Female,1,No,No,68,No,No,Fiber optic,No,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),68.72,242.39,Yes
+7984-BBBB,Male,1,Yes,No,52,Yes,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,85.83,3950.7,No
+4732-DDDD,Male,1,Yes,No,19,Yes,No phone service,DSL,No,Yes,Yes,Yes,No,No,One year,No,Electronic check,67.48,3040.18,No
+9569-FFFF,Female,0,No,No,37,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,One year,Yes,Electronic check,43.66,4361.81,No
+9119-DDDD,Female,1,No,No,47,Yes,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,No,Mailed check,66.63,7131.58,No
+9371-FFFF,Female,0,Yes,No,63,No,No,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,81.67,7749.97,No
+5497-FFFF,Male,1,No,No,29,Yes,No phone service,Fiber optic,No,No,No,No,No,No,One year,No,Mailed check,106.51,5415.11,Yes
+6720-DDDD,Male,0,No,No,18,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,One year,No,Electronic check,31.33,1563.77,Yes
+1004-BBBB,Male,1,Yes,No,28,No,No,Fiber optic,No,No,Yes,No,No,No,One year,No,Bank transfer (automatic),94.34,4804.79,No
+6092-BBBB,Male,1,No,No,15,No,No,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,Yes,Electronic check,39.2,6478.73,No
+6812-FFFF,Male,0,No,No,6,Yes,No,Fiber optic,No,Yes,No,Yes,No,No,One year,Yes,Mailed check,67.42,2047.59,Yes
+5516-EEEE,Female,1,Yes,No,39,No,No phone service,DSL,Yes,No,No,No,No,No,One year,No,Bank transfer (automatic),22.1,329.19,Yes
+5452-AAAA,Male,0,No,No,68,Yes,No,Fiber optic,Yes,No,No,No,No,No,One year,No,Mailed check,95.14,8473.18,Yes
+9761-FFFF,Female,1,No,No,67,No,No phone service,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Mailed check,23.25,2135.58,No
+6892-EEEE,Female,1,Yes,No,9,Yes,No,Fiber optic,No,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),57.72,7220.52,No
+1572-EEEE,Male,0,Yes,No,62,No,No phone service,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Electronic check,44.25,2639.41,Yes
+7731-DDDD,Female,1,No,No,0,No,No,Fiber optic,No,No,No,No,No,No,One year,Yes,Mailed check,108.43,1382.65,No
+6565-FFFF,Female,1,No,No,48,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Bank transfer (automatic),99.74,4581.38,No
+6287-CCCC,Female,1,Yes,No,48,Yes,No,Fiber optic,No,Yes,No,No,No,No,Month-to-month,No,Mailed check,58.61,8701.02,Yes
+7997-BBBB,Female,1,Yes,No,48,Yes,No phone service,DSL,Yes,No,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),35.84,578.6,No
+7811-EEEE,Female,0,Yes,No,36,No,No phone service,Fiber optic,No,No,Yes,Yes,No,No,One year,No,Bank transfer (automatic),67.16,2062.78,Yes
+1579-CCCC,Male,1,Yes,No,54,Yes,No,Fiber optic,No,Yes,No,No,No,No,One year,No,Mailed check,90.97,8853.73,No
+8572-AAAA,Male,0,Yes,No,29,No,No phone service,DSL,No,Yes,Yes,No,No,No,One year,Yes,Electronic check,113.58,4124.4,No
+4555-BBBB,Female,0,No,No,61,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,109.39,3035.63,No
+9283-FFFF,Female,1,No,No,53,No,No,DSL,Yes,Yes,Yes,No,No,No,One year,Yes,Electronic check,102.36,6386.83,No
+2410-BBBB,Female,0,Yes,No,39,No,No phone service,DSL,No,No,No,No,No,No,One year,No,Electronic check,106.97,4260.59,Yes
+7102-FFFF,Female,0,Yes,No,65,No,No phone service,Fiber optic,No,No,No,Yes,No,No,One year,Yes,Electronic check,21.42,2333.54,No
+6585-EEEE,Male,0,Yes,No,38,Yes,No,DSL,Yes,No,No,No,No,No,One year,No,Electronic check,42.73,4903.21,Yes
+2860-BBBB,Male,0,Yes,No,11,Yes,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),22.89,2172.02,Yes
+1919-DDDD,Female,0,No,No,26,No,No phone service,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,46.08,101.6,Yes
+3939-FFFF,Male,1,No,No,31,No,No,Fiber optic,No,Yes,No,No,No,No,One year,No,Mailed check,112.58,5946.74,Yes
+2425-DDDD,Male,0,Yes,No,8,No,No phone service,Fiber optic,Yes,Yes,No,No,No,No,One year,Yes,Mailed check,54.81,8062.09,Yes
+4483-DDDD,Male,0,No,No,21,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,No,One year,Yes,Electronic check,55.35,2854.39,Yes
+7276-DDDD,Male,1,No,No,11,No,No,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),88.13,6449.54,Yes
+3042-BBBB,Male,1,No,No,44,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Electronic check,66.03,1973.94,Yes
+9021-BBBB,Female,0,Yes,No,47,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,No,Electronic check,47.11,6847.75,Yes
+4557-DDDD,Male,0,Yes,No,2,Yes,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Electronic check,97.77,7727.74,Yes
+2164-CCCC,Male,0,No,No,1,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,No,Mailed check,50.41,7308.41,No
+3443-EEEE,Male,0,Yes,No,12,No,No phone service,DSL,No,No,No,Yes,No,No,One year,Yes,Electronic check,95.18,5123.05,No
+6666-CCCC,Male,0,No,No,10,Yes,No phone service,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Bank transfer (automatic),43.29,4438.18,Yes
+2093-AAAA,Female,1,No,No,56,Yes,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),36.36,2751.03,Yes
+2189-BBBB,Male,1,No,No,71,No,No phone service,Fiber optic,No,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,83.9,751.4,Yes
+5777-CCCC,Male,1,No,No,15,Yes,No,DSL,Yes,No,Yes,Yes,No,No,Month-to-month,Yes,Bank transfer (automatic),111.07,3932.34,No
+3707-EEEE,Female,1,No,No,26,Yes,No,DSL,Yes,Yes,No,No,No,No,One year,Yes,Bank transfer (automatic),102.11,8726.03,Yes
+7297-CCCC,Female,1,Yes,No,53,No,No,DSL,No,No,Yes,No,No,No,One year,No,Electronic check,113.07,241.31,Yes
+6322-CCCC,Female,0,Yes,No,45,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),73.92,2310.74,No
+8210-FFFF,Male,0,Yes,No,50,Yes,No,Fiber optic,Yes,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,66.36,7062.76,No
+4185-DDDD,Male,1,Yes,No,48,No,No,Fiber optic,No,Yes,Yes,No,No,No,One year,No,Electronic check,94.95,6301.82,No
+3283-BBBB,Male,0,No,No,14,No,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Electronic check,64.9,4144.55,No
+9001-FFFF,Female,1,No,No,57,Yes,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,One year,Yes,Electronic check,87.17,3018.44,Yes
+2982-EEEE,Male,1,No,No,7,Yes,No,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Mailed check,95.66,5250.27,Yes
+8532-FFFF,Female,1,Yes,No,22,No,No,DSL,Yes,No,Yes,Yes,No,No,One year,Yes,Mailed check,119.83,4881.44,No
+5698-EEEE,Male,0,Yes,No,48,No,No,Fiber optic,Yes,Yes,No,No,No,No,One year,Yes,Mailed check,55.25,1152.47,Yes
+3881-AAAA,Female,0,Yes,No,0,No,No,Fiber optic,Yes,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,52.23,6996.51,Yes
+4670-BBBB,Male,1,Yes,No,19,No,No,Fiber optic,Yes,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,23.34,5226.54,No
+8938-FFFF,Female,0,No,No,63,Yes,No phone service,Fiber optic,No,Yes,Yes,No,No,No,One year,Yes,Bank transfer (automatic),84.59,2111.25,Yes
+2294-AAAA,Male,0,Yes,No,67,No,No phone service,DSL,No,No,No,Yes,No,No,One year,Yes,Electronic check,55.45,5090.05,No
+4787-AAAA,Male,0,Yes,No,47,No,No,DSL,No,Yes,Yes,Yes,No,No,One year,No,Electronic check,114.57,6097.84,No
+4259-CCCC,Male,1,No,No,35,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),33.03,5797.99,Yes
+6795-DDDD,Male,1,Yes,No,49,Yes,No phone service,Fiber optic,Yes,No,No,Yes,No,No,One year,No,Bank transfer (automatic),21.77,942.86,Yes
+2620-AAAA,Male,1,Yes,No,48,No,No,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,Yes,Mailed check,88.67,2207.66,Yes
+2537-CCCC,Female,0,Yes,No,15,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,Yes,Electronic check,29.83,4054.49,No
+9553-AAAA,Female,0,No,No,17,No,No,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Mailed check,91.94,272.53,No
+6560-AAAA,Male,0,No,No,13,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,No,Month-to-month,No,Mailed check,111.26,1612.62,Yes
+8141-EEEE,Male,0,No,No,51,No,No,Fiber optic,Yes,No,No,Yes,No,No,Month-to-month,Yes,Electronic check,116.44,1490.29,Yes
+5674-FFFF,Male,1,Yes,No,2,Yes,No phone service,DSL,Yes,Yes,Yes,Yes,No,No,One year,Yes,Mailed check,71.46,6386.5,No
