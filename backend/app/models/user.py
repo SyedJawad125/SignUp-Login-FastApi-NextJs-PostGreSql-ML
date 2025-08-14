@@ -19,6 +19,8 @@ class User(Base):
     role = relationship("Role", back_populates="users", foreign_keys=[role_id])   
     created_roles = relationship("Role", back_populates="creator", foreign_keys="Role.created_by_user_id")
     permissions = relationship("Permission", secondary=user_permission, back_populates="users")
+    created_permissions = relationship("Permission", back_populates="creator", foreign_keys="Permission.created_by_user_id")
+
     # Employee
     employee_id = Column(Integer, ForeignKey("employees.id"), unique=True)  # one user per employee
     employee    = relationship("Employee", back_populates="user")

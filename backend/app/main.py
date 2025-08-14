@@ -18,7 +18,7 @@ from app.models.image import Image
 
 # Import routers
 from app.routers import (
-    employee, department, auth, user, 
+    employee, auth, user, 
     role, permission, image_category, image, 
     house_price_model, churn_router   # Added house_price_model router
 )
