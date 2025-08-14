@@ -1,19 +1,4 @@
-# # app.py
-# from fastapi import FastAPI
-# import joblib
-# import pandas as pd
-
-# app = FastAPI()
-# model = joblib.load("house_price_model.pkl")
-
-# @app.post("/predict")
-# def predict(data: dict):
-#     df = pd.DataFrame([data])
-#     prediction = model.predict(df)[0]
-#     return {"predicted_price": round(prediction, 2)}
-
-
-
+# app/routers/house_price_model.py
 from fastapi import APIRouter, HTTPException
 import joblib
 import pandas as pd
@@ -24,8 +9,8 @@ router = APIRouter(
     tags=["Machine Learning"]
 )
 
-# Get absolute path to model
-model_path = Path(__file__).parent.parent / "models" / "house_price_model.pkl"
+# Path to ml_models folder at project root
+model_path = Path(__file__).parent.parent / "ml_models" / "house_price_model.pkl"
 
 try:
     model = joblib.load(model_path)
@@ -40,23 +25,23 @@ async def predict_house_price(data: dict):
     if model is None:
         raise HTTPException(
             status_code=503,
-            detail="Model not loaded. Please: 1) Run 'python app/models/house_price_model.py', 2) Verify the .pkl file exists, 3) Check console for loading errors"
+            detail="Model not loaded. Please train the model first."
         )
-    
+
     try:
-        # Convert input to DataFrame
+        # Required features
         required_features = ["size_sqft", "bedrooms", "bathrooms", "location", "age_years"]
         df = pd.DataFrame([data])
-        
+
         # Validate input
-        if not all(feature in df.columns for feature in required_features):
-            missing = [f for f in required_features if f not in df.columns]
+        missing = [f for f in required_features if f not in df.columns]
+        if missing:
             raise HTTPException(
                 status_code=400,
                 detail=f"Missing required features: {missing}"
             )
-        
-        # Make prediction
+
+        # Predict
         prediction = model.predict(df)[0]
         return {
             "predicted_price": round(prediction, 2),

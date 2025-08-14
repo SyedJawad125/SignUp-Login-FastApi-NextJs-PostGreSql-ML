@@ -18,9 +18,9 @@ from app.models.image import Image
 
 # Import routers
 from app.routers import (
-    employee, auth, user, 
+    employee, auth, house_price_api, user, 
     role, permission, image_category, image, 
-    house_price_model, churn_router   # Added house_price_model router
+    churn_router, pca_api, car_price_api  # Added house_price_model router
 )
 
 app = FastAPI(
@@ -77,8 +77,11 @@ app.include_router(role.router)
 app.include_router(permission.router)
 app.include_router(image_category.router)
 app.include_router(image.router)
-app.include_router(house_price_model.router)  # Added ML router
+app.include_router(house_price_api.router)  # Added ML router
 app.include_router(churn_router.router)  # Added ML router
+app.include_router(pca_api.router)
+app.include_router(car_price_api.router)
+
 
 @app.on_event("startup")
 def startup_event():
@@ -104,6 +107,13 @@ def startup_event():
     except Exception as e:
         print(f"Error loading churn model: {str(e)}")
 
+    # Import training function
+    try:
+        from app.models.car_price_model import train_car_price_model
+        print("Initializing car price prediction model...")
+        train_car_price_model()
+    except Exception as e:
+        print(f"❌ Error loading car price model: {str(e)}")
 
 @app.get("/")
 def root():
