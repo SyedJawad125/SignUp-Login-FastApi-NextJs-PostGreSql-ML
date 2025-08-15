@@ -1,0 +1,212 @@
+Metadata-Version: 2.4
+Name: habanero
+Version: 2.3.0
+Summary: Low Level Client for Crossref Search API
+Project-URL: Homepage, https://github.com/sckott/habanero
+Project-URL: Documentation, https://habanero.readthedocs.io/
+Project-URL: Repository, https://github.com/sckott/habanero
+Project-URL: Bug Tracker, https://github.com/sckott/habanero/issues
+Project-URL: Changelog, https://github.com/sckott/habanero/blob/main/Changelog.rst
+Maintainer-email: Scott Chamberlain <myrmecocystus@gmail.com>
+License: Copyright (C) 2025 Scott Chamberlain
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE.md
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.10
+Requires-Dist: httpx>=0.27.2
+Requires-Dist: packaging>=24.1
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: tqdm>=4.66.5
+Requires-Dist: urllib3<3.0.0,>=2.2.2
+Provides-Extra: bibtex
+Requires-Dist: bibtexparser>=2.0.0b7; extra == 'bibtex'
+Description-Content-Type: text/x-rst
+
+habanero
+========
+
+|pypi| |docs| |ghactions| |coverage| |ruff| |uv|
+
+This is a low level client for working with Crossref's search API. It's been named to be more generic, as other organizations are/will adopt Crossref's search API, making it possible to interact with all from one client.
+
+`Crossref API docs <https://api.crossref.org/swagger-ui/index.html>`__
+
+Other Crossref API clients:
+
+- Ruby: `serrano`, `<https://github.com/sckott/serrano>`__
+
+Crossref's API issue tracker: https://crossref.atlassian.net/jira/software/c/projects/CR/issues/
+
+`habanero` includes three modules you can import as needed (or
+import all):
+
+`Crossref` - Crossref search API. The `Crossref` module includes methods matching Crossref API routes, and a few convenience methods for getting DOI agency and random DOIs:
+
+- `works` - `/works` route
+- `members` - `/members` route
+- `prefixes` - `/prefixes` route
+- `funders` - `/funders` route
+- `journals` - `/journals` route
+- `types` - `/types` route
+- `licenses` - `/licenses` route
+- `registration_agency` - get DOI minting agency
+- `random_dois` - get random set of DOIs
+
+`counts` - citation counts. Includes the single `citation_count` method
+
+`cn` - content negotiation. Includes the methods:
+
+- `content_negotiation` - get citations in a variety of formats
+- `csl_styles` - get CSL styles, used in `content_negotation` method
+
+`WorksContainer` - A class for handling Crossref works. Pass output of works from methods on the `Crossref` class to more easily extract specific fields of works.
+
+Note about searching:
+
+You are using the Crossref search API described at https://api.crossref.org/swagger-ui/index.html. When you search with query terms, on Crossref servers they are not searching full text, or even abstracts of articles, but only what is available in the data that is returned to you. That is, they search article titles, authors, etc. For some discussion on this, see https://gitlab.com/crossref/issues/-/issues/101
+
+Rate limits
+-----------
+
+See the headers `X-Rate-Limit-Limit` and `X-Rate-Limit-Interval` for current rate limits.
+
+The Polite Pool
+---------------
+
+To get in the polite pool it's a good idea now to include a `mailto` email
+address. See docs for more information.
+
+
+Installation
+============
+
+Stable version
+
+.. code-block:: console
+
+  # pip
+  pip install habanero
+
+  # uv w/ legacy project setup
+  uv pip install habanero
+  # uv w/ pyproject.toml
+  uv add habanero
+
+
+If you would like to fix bibtex format citations using content negotiation you'll have to install the optional dependency bibtexparser >= 2.0.0b7 (done for you with optional `[bibtex]`)
+
+.. code-block:: console
+
+  pip install habanero[bibtex]
+
+
+Dev version
+
+.. code-block:: console
+
+    pip install git+https://github.com/sckott/habanero.git#egg=habanero
+
+
+Or build it yourself locally
+
+.. code-block:: console
+
+    git clone https://github.com/sckott/habanero.git
+    cd habanero
+    make install
+
+Usage
+=====
+
+Initialize a client
+
+.. code-block:: python
+
+    from habanero import Crossref
+    cr = Crossref()
+
+Works route
+
+.. code-block:: python
+
+  # query
+  x = cr.works(query = "ecology")
+  x['message']
+  x['message']['total-results']
+  x['message']['items']
+
+  # fetch data by DOI
+  cr.works(ids = '10.1371/journal.pone.0033693')
+
+Members route
+
+.. code-block:: python
+
+  # ids here is the Crossref Member ID; 98 = Hindawi
+  cr.members(ids = 98, works = True)
+
+Citation counts
+
+.. code-block:: python
+
+  from habanero import counts
+  counts.citation_count(doi = "10.1016/j.fbr.2012.01.001")
+
+Content negotiation - get citations in many formats
+
+.. code-block:: python
+
+  from habanero import cn
+  cn.content_negotiation(ids = '10.1126/science.169.3946.635')
+  cn.content_negotiation(ids = '10.1126/science.169.3946.635', format = "citeproc-json")
+  cn.content_negotiation(ids = "10.1126/science.169.3946.635", format = "rdf-xml")
+  cn.content_negotiation(ids = "10.1126/science.169.3946.635", format = "text")
+  cn.content_negotiation(ids = "10.1126/science.169.3946.635", format = "text", style = "apa")
+  cn.content_negotiation(ids = "10.1126/science.169.3946.635", format = "bibentry")
+
+Meta
+====
+
+* Please note that this project is released with a `Contributor Code of Conduct <https://github.com/sckott/habanero/blob/main/CODE_OF_CONDUCT.md>`__. By participating in this project you agree to abide by its terms.
+* License: MIT; see `LICENSE file <https://github.com/sckott/habanero/blob/main/LICENSE>`__
+
+.. |pypi| image:: https://badge.fury.io/py/habanero.svg
+    :target: https://badge.fury.io/py/habanero
+    :alt: pypi
+
+.. |docs| image:: https://readthedocs.org/projects/habanero/badge/?version=latest
+   :target: http://habanero.rtfd.org/
+   :alt: Docs
+
+.. |ghactions| image:: https://github.com/sckott/habanero/actions/workflows/python.yml/badge.svg?branch=main
+   :target: https://github.com/sckott/habanero/actions/workflows/python.yml
+   :alt: ghactions
+
+.. |coverage| image:: https://codecov.io/gh/sckott/habanero/branch/main/graph/badge.svg?token=6RrgNAuQmR
+   :target: https://codecov.io/gh/sckott/habanero
+   :alt: coverage
+
+.. |ruff| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
+    :target: https://github.com/astral-sh/ruff
+    :alt: Ruff
+
+.. |uv| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json
+    :target: https://github.com/astral-sh/uv
+    :alt: uv

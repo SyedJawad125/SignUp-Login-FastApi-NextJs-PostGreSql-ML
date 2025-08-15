@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: getpass4
+Version: 0.0.14.1
+Summary: getpass but with custom characters when you type your password
+Home-page: UNKNOWN
+Author: Caua_SCP
+Author-email: cauascp37@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >= 3.0
+Description-Content-Type: text/markdown
+Requires-Dist: caugetch
+Requires-Dist: clipboard
+Requires-Dist: colorama
+Requires-Dist: pyperclip
+
+### How to use getpass4
+
+```python
+from getpass4 import getpass
+
+
+password = getpass('Password: ')
+
+print(password)
+```
+
