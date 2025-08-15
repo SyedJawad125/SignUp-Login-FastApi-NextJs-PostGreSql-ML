@@ -1,0 +1,18 @@
+# Author: Erwan Pannier 
+# A Matplotlib style to provide publication-level quality images
+# Note: article should be built on top of default. When importing plotlib default is 
+# imported already. 
+
+legend.frameon: false
+
+axes.labelsize: 24
+axes.titlesize: 28
+font.size: 20
+legend.fontsize: 20
+xtick.labelsize: 24
+ytick.labelsize: 24
+
+figure.subplot.top: 0.82
+figure.subplot.bottom: 0.17
+figure.subplot.left: 0.20
+figure.subplot.right: 0.90

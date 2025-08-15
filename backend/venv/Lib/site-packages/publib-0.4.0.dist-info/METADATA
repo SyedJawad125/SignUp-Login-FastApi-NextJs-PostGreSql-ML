@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: publib
+Version: 0.4.0
+Summary: Produce publication-level quality images on top of Matplotlib
+Home-page: https://github.com/erwanp/publib
+Author: Erwan Pannier
+Author-email: erwan.pannier@gmail.com
+License: MIT License
+Keywords: origin,styles,matplotlib
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Text Processing
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: matplotlib >=3.8.0
+Requires-Dist: six
+
+Produce publication-level quality images on top of Matplotlib, with a simple call to a couple functions at the start and end of your script.

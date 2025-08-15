@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: radis
+Version: 0.16.3
+Summary: A fast line-by-line code for high-resolution infrared molecular spectra
+Author: Erwan Pannier
+License: GNU Lesser General Public License v3 (LGPLv3)
+Keywords: spectrum,infrared,spectra,radiation,nonequilibrium,spectroscopy,molecules,HITRAN,hitemp,exomol,GEISA,NIST,Kurucz,line-by-line
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: astropy>=4.3.1
+Requires-Dist: astroquery>=0.4.6
+Requires-Dist: beautifulsoup4>=4.10.0
+Requires-Dist: configparser
+Requires-Dist: cryptography
+Requires-Dist: getpass4
+Requires-Dist: habanero>=1.2.0
+Requires-Dist: h5py>=3.2.1
+Requires-Dist: hjson
+Requires-Dist: hitran-api
+Requires-Dist: joblib
+Requires-Dist: json-tricks>=3.15.0
+Requires-Dist: lmfit
+Requires-Dist: lxml
+Requires-Dist: matplotlib
+Requires-Dist: mpldatacursor
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: peakutils
+Requires-Dist: periodictable
+Requires-Dist: plotly>=2.5.1
+Requires-Dist: psutil
+Requires-Dist: publib
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: ruamel.yaml
+Requires-Dist: scipy>=1.4.0
+Requires-Dist: seaborn
+Requires-Dist: tables
+Requires-Dist: termcolor
+Requires-Dist: toml
+Requires-Dist: tqdm
+Requires-Dist: vaex-core; python_version < "3.11"
+Requires-Dist: vaex-hdf5; python_version < "3.11"
+Requires-Dist: vaex-viz; python_version < "3.11"
+Requires-Dist: vulkan
+Provides-Extra: dev
+Requires-Dist: numpydoc; extra == "dev"
+Requires-Dist: black>=20.8b1; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ipython>=7.0.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx-autodoc-annotation; extra == "docs"
+Requires-Dist: sphinx_autodoc_defaultargs>=0.1.2; extra == "docs"
+Requires-Dist: sphinx>=1.7.0; extra == "docs"
+Requires-Dist: astroquery>=0.3.9; extra == "docs"
+Requires-Dist: sphinxcontrib-apidoc; extra == "docs"
+Requires-Dist: sphinx-gallery; extra == "docs"
+Requires-Dist: lmfit; extra == "docs"
+Requires-Dist: pytest; extra == "docs"
+Requires-Dist: specutils<2.0; extra == "docs"
+Dynamic: license-file

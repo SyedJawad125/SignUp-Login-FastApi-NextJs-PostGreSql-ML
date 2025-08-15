@@ -1,0 +1,72 @@
+# Author: Erwan Pannier
+# A Matplotlib style to provide publication-level quality images
+
+axes.prop_cycle: cycler('color',['5DA5DA', 'FAA43A', '60BD68', 'F17CB0', 'B2912F', 'B276B2', 'DECF3F', 'F15854', '4D4D4D'])								   
+axes.formatter.use_mathtext: true
+axes.grid: false
+figure.dpi: 80.0
+figure.facecolor: white
+figure.figsize: 8, 6
+
+grid.alpha: 0.2
+grid.color: 0.7
+grid.linestyle: --
+grid.linewidth: 0.5
+
+legend.borderpad: 0.4
+legend.frameon: true
+legend.labelspacing: 0.1
+legend.numpoints: 1
+
+lines.dash_joinstyle: round
+lines.linewidth: 2.0
+lines.markeredgewidth: 1.0
+lines.solid_capstyle: round
+lines.solid_joinstyle: round
+
+patch.edgecolor: 0.5
+patch.facecolor: 0.75
+
+savefig.bbox: tight
+savefig.dpi: 300.0
+savefig.format: pdf
+
+text.usetex: false
+
+xtick.direction: out
+xtick.major.pad: 4.0
+xtick.major.size: 6.0
+xtick.major.width: 1.0
+xtick.minor.pad: 3.0
+xtick.minor.size: 3.0
+xtick.minor.width: 1.0
+ytick.direction: out
+ytick.major.pad: 4.0
+ytick.major.size: 6.0
+ytick.major.width: 1.0
+ytick.minor.pad: 3.0
+ytick.minor.size: 3.0
+ytick.minor.width: 1.0
+
+figure.subplot.top: 0.85
+figure.subplot.bottom: 0.15
+figure.subplot.left: 0.17
+figure.subplot.right: 0.88
+
+axes.labelsize: 20
+axes.titlesize: 24
+font.size: 20
+legend.fontsize: 20
+xtick.labelsize: 16
+ytick.labelsize: 16
+
+font.family         : sans-serif
+font.style          : normal
+font.variant        : normal
+font.weight         : normal
+font.stretch        : normal
+font.serif          : Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.sans-serif     : Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, cursive
+font.fantasy        : Comic Sans MS, Chicago, Charcoal, Impact, Western, Humor Sans, fantasy
+font.monospace      : Bitstream Vera Sans Mono, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
