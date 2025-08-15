@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: caugetch
+Version: 0.0.1
+Summary: this is a better getpass. Made by Caua_SCP.
+Home-page: https://www.youtube.com/channel/UCAbwAklWIeuoKKjVBMQVCew
+Author: Cauã S. C. P.
+Author-email: cauascp37@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+ï»¿Portable getch() for Python 3.
+
+## Links
+
+-   [Source code](https://github.com/joeyespo/py-getch)
+
+

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Next Applications\FastApi Project\FastApi_Hrm\venv
+set VIRTUAL_ENV=D:\Next Applications\FastApi Project\7. Sign Log FastApi NextJs PostGreSql ML\backend\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

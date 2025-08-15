@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -15,18 +16,72 @@ from app.models.role import Role
 from app.models.permission import Permission
 from app.models.image_category import ImageCategory
 from app.models.image import Image
+from app.models.mnist_model import initialize_model
 
 # Import routers
 from app.routers import (
     employee, auth, house_price_api, user, 
     role, permission, image_category, image, 
-    churn_router, pca_api, car_price_api  # Added house_price_model router
+    churn_router, pca_api, car_price_api, mnist_api # Added house_price_model router
 )
 
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# ========================================================================
+# Application Lifespan Management
+# ========================================================================
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Handle startup and shutdown events"""
+    logger.info("🚀 Starting MNIST API application...")
+
+    try:
+        # Initialize MNIST model
+        logger.info("📦 Initializing MNIST model...")
+        model = initialize_model()
+        logger.info("✅ Model initialized successfully!")
+
+        if model.is_loaded:
+            model_info = model.get_model_info()
+            logger.info(f"📊 Model accuracy: {model_info['performance']['test_accuracy']:.4f}")
+    except Exception as e:
+        logger.error(f"❌ Failed to initialize model: {str(e)}")
+        logger.info("🔄 Application will continue, but model endpoints may not work")
+
+    logger.info("🎉 Application startup completed!")
+    yield
+    logger.info("🛑 Shutting down MNIST API application...")
+    logger.info("✅ Shutdown completed!")
+
+# ========================================================================
+# Create FastAPI App
+# ========================================================================
+
 app = FastAPI(
-    title="HRM System with House Price Prediction",
+    title="MNIST Digit Classification API",
     version="1.0.0",
-    description="An API for managing HRM features with machine learning capabilities",
+    description="Deep Learning API for Handwritten Digit Recognition using MNIST dataset.",
+    lifespan=lifespan
+)
+app = FastAPI(
+    # title="HRM System with House Price Prediction",
+    # version="1.0.0",
+    # description="An API for managing HRM features with machine learning capabilities",
+    title="HRM System with House Price Prediction + MNIST Digit Classification",
+    version="1.0.0",
+    description=(
+        "An API for managing HRM features with machine learning capabilities, "
+        "including House Price Prediction, Churn Prediction, Car Price Prediction, "
+        "and MNIST Handwritten Digit Recognition."
+    ),
+    lifespan=lifespan,
     openapi_tags=[
         {
             "name": "Employees",
@@ -81,6 +136,7 @@ app.include_router(house_price_api.router)  # Added ML router
 app.include_router(churn_router.router)  # Added ML router
 app.include_router(pca_api.router)
 app.include_router(car_price_api.router)
+app.include_router(mnist_api.router)
 
 
 @app.on_event("startup")
