@@ -20,7 +20,9 @@ class CNNModel:
         self.input_shape = (64, 64, 3)
         self.num_classes = 2
         self.class_names = ['Cat', 'Dog']
-        self.model_path = "models/cnn_cats_dogs.h5"
+        self.model_path = "app/ml_models/cnn_cats_dogs.h5"
+        self.is_loaded = False  # ✅ Properly initialized
+        self.is_trained = False  # ✅ Track training status
         
     def create_simple_cnn(self) -> keras.Model:
         """Create a simple LeNet-inspired CNN"""
@@ -133,11 +135,13 @@ class CNNModel:
             # Compile the model
             self.model.compile(
                 optimizer=keras.optimizers.Adam(learning_rate=0.001),
-                loss='categorical_crossentropy',
+                loss='sparse_categorical_crossentropy',
                 metrics=['accuracy']
             )
             
             self.model_type = model_type
+            self.is_loaded = True  # ✅ Model is created and ready
+            self.is_trained = False  # ✅ Not trained yet
             
             logger.info(f"Created {model_type} model with {self.model.count_params()} parameters")
             
@@ -152,6 +156,7 @@ class CNNModel:
             
         except Exception as e:
             logger.error(f"Error creating model: {str(e)}")
+            self.is_loaded = False
             return {
                 "status": "error",
                 "message": f"Failed to create model: {str(e)}"
@@ -186,7 +191,8 @@ class CNNModel:
             images.append(image)
         
         images = np.array(images)
-        labels = keras.utils.to_categorical(labels, self.num_classes)
+        # ✅ Fixed: Use sparse labels for sparse_categorical_crossentropy
+        labels = np.array(labels)  # Keep as integers [0, 1] not one-hot encoded
         
         return images, labels
     
@@ -218,9 +224,10 @@ class CNNModel:
                 verbose=1
             )
             
-            # Save the model
+            # Save the model - ensure directory exists
             os.makedirs(os.path.dirname(self.model_path), exist_ok=True)
             self.model.save(self.model_path)
+            self.is_trained = True  # ✅ Mark as trained
             
             # Get final metrics
             final_loss = history.history['loss'][-1]
@@ -396,6 +403,8 @@ class CNNModel:
                 "input_shape": self.input_shape,
                 "output_classes": self.num_classes,
                 "class_names": self.class_names,
+                "is_loaded": self.is_loaded,
+                "is_trained": self.is_trained,
                 "model_summary": str(self.model.summary())
             }
         except Exception as e:
@@ -410,10 +419,26 @@ class CNNModel:
             path = model_path or self.model_path
             if os.path.exists(path):
                 self.model = keras.models.load_model(path)
+                self.is_loaded = True
+                self.is_trained = True  # ✅ Assume loaded model is trained
+                
+                # Try to detect model type from the loaded model
+                if self.model_type is None:
+                    # Simple heuristic to detect model type based on layer count
+                    num_layers = len(self.model.layers)
+                    if num_layers <= 10:
+                        self.model_type = "simple"
+                    elif num_layers <= 15:
+                        self.model_type = "vgg"
+                    else:
+                        self.model_type = "resnet"
+                
                 logger.info(f"Model loaded from {path}")
                 return {
                     "status": "success",
-                    "message": f"Model loaded successfully from {path}"
+                    "message": f"Model loaded successfully from {path}",
+                    "model_type": self.model_type,
+                    "parameters": int(self.model.count_params()) if self.model else 0
                 }
             else:
                 return {
@@ -422,7 +447,72 @@ class CNNModel:
                 }
         except Exception as e:
             logger.error(f"Error loading model: {str(e)}")
+            self.is_loaded = False
             return {
                 "status": "error",
                 "message": f"Failed to load model: {str(e)}"
             }
+    
+    def reset_model(self) -> Dict[str, Any]:
+        """Reset/clear the current model"""
+        try:
+            self.model = None
+            self.model_type = None
+            self.is_loaded = False
+            self.is_trained = False
+            
+            logger.info("Model reset successfully")
+            return {
+                "status": "success",
+                "message": "Model has been reset successfully"
+            }
+        except Exception as e:
+            logger.error(f"Error resetting model: {str(e)}")
+            return {
+                "status": "error",
+                "message": f"Failed to reset model: {str(e)}"
+            }
+    
+    def save_model(self, model_path: str = None) -> Dict[str, Any]:
+        """Save the current model"""
+        if self.model is None:
+            return {
+                "status": "error",
+                "message": "No model found to save"
+            }
+        
+        try:
+            path = model_path or self.model_path
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            self.model.save(path)
+            
+            logger.info(f"Model saved to {path}")
+            return {
+                "status": "success",
+                "message": f"Model saved successfully to {path}"
+            }
+        except Exception as e:
+            logger.error(f"Error saving model: {str(e)}")
+            return {
+                "status": "error",
+                "message": f"Failed to save model: {str(e)}"
+            }
+    
+    def get_training_summary(self) -> Dict[str, Any]:
+        """Get a summary of the model's training status and capabilities"""
+        return {
+            "model_loaded": self.is_loaded,
+            "model_trained": self.is_trained,
+            "model_type": self.model_type,
+            "input_shape": self.input_shape,
+            "num_classes": self.num_classes,
+            "class_names": self.class_names,
+            "model_path": self.model_path,
+            "total_parameters": int(self.model.count_params()) if self.model else 0,
+            "capabilities": {
+                "can_predict": self.is_loaded,
+                "can_train": self.is_loaded,
+                "can_save": self.is_loaded,
+                "architectures_supported": ["simple", "vgg", "resnet"]
+            }
+        }

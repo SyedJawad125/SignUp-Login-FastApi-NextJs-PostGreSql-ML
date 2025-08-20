@@ -8,19 +8,12 @@ from concurrent.futures import ThreadPoolExecutor
 import sys
 import os
 
-# Add the parent directory to the path to import models
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from app.models.model import CNNModel
-
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Initialize router
-router = APIRouter(prefix="/api/v1", tags=["CNN Image Classifier"])
-
-# Global model instance
-cnn_model = CNNModel()
+router = APIRouter(prefix="/api/cnn", tags=["CNN Image Classifier"])
 
 # Thread pool for CPU-intensive tasks
 executor = ThreadPoolExecutor(max_workers=2)
@@ -38,11 +31,31 @@ class ModelResponse(BaseModel):
     message: str
     data: Optional[Dict[str, Any]] = None
 
+# Global variable to store the model instance - will be injected from main.py
+cnn_model = None
+
+def set_cnn_model(model_instance):
+    """Set the CNN model instance from main.py"""
+    global cnn_model
+    cnn_model = model_instance
+    logger.info("CNN model instance set in router")
+
+def get_cnn_model():
+    """Get the CNN model instance"""
+    if cnn_model is None:
+        raise HTTPException(status_code=500, detail="CNN model not initialized")
+    return cnn_model
+
 # Health check endpoint
 @router.get("/health", summary="Health Check")
 async def health_check():
     """Check if the API is running"""
-    return {"status": "healthy", "message": "CNN Image Classifier API is running"}
+    model_status = "loaded" if cnn_model and cnn_model.is_loaded else "not_loaded"
+    return {
+        "status": "healthy", 
+        "message": "CNN Image Classifier API is running",
+        "model_status": model_status
+    }
 
 # Model management endpoints
 @router.post("/model/create", response_model=ModelResponse, summary="Create CNN Model")
@@ -53,13 +66,14 @@ async def create_model(request: ModelCreateRequest):
     - **model_type**: Type of CNN architecture (simple, vgg, resnet)
     """
     try:
+        model = get_cnn_model()
         logger.info(f"Creating {request.model_type} model...")
         
         # Run model creation in thread pool to avoid blocking
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(
             executor, 
-            cnn_model.create_model, 
+            model.create_model, 
             request.model_type
         )
         
@@ -72,6 +86,8 @@ async def create_model(request: ModelCreateRequest):
             data=result
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error creating model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
@@ -80,7 +96,8 @@ async def create_model(request: ModelCreateRequest):
 async def get_model_info():
     """Get information about the current model"""
     try:
-        result = cnn_model.get_model_info()
+        model = get_cnn_model()
+        result = model.get_model_info()
         
         if result["status"] == "error":
             raise HTTPException(status_code=404, detail=result["message"])
@@ -91,6 +108,8 @@ async def get_model_info():
             data=result
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error getting model info: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
@@ -99,7 +118,8 @@ async def get_model_info():
 async def load_model(model_path: Optional[str] = None):
     """Load a previously saved model"""
     try:
-        result = cnn_model.load_model(model_path)
+        model = get_cnn_model()
+        result = model.load_model(model_path)
         
         if result["status"] == "error":
             raise HTTPException(status_code=404, detail=result["message"])
@@ -109,6 +129,8 @@ async def load_model(model_path: Optional[str] = None):
             message=result["message"]
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error loading model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
@@ -123,13 +145,14 @@ async def train_model(request: TrainingRequest):
     - **batch_size**: Batch size for training (default: 32)
     """
     try:
+        model = get_cnn_model()
         logger.info(f"Starting training for {request.epochs} epochs...")
         
         # Run training in thread pool to avoid blocking
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(
             executor,
-            cnn_model.train_model,
+            model.train_model,
             request.epochs,
             request.batch_size
         )
@@ -143,6 +166,8 @@ async def train_model(request: TrainingRequest):
             data=result
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error training model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
@@ -156,6 +181,8 @@ async def predict_image(file: UploadFile = File(...)):
     - **file**: Image file to classify (JPG, PNG, etc.)
     """
     try:
+        model = get_cnn_model()
+        
         # Validate file type
         if not file.content_type.startswith('image/'):
             raise HTTPException(status_code=400, detail="File must be an image")
@@ -167,7 +194,7 @@ async def predict_image(file: UploadFile = File(...)):
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(
             executor,
-            cnn_model.predict_image,
+            model.predict_image,
             image_data
         )
         
@@ -192,11 +219,13 @@ async def predict_random():
     Generate a random test image and predict its class
     """
     try:
+        model = get_cnn_model()
+        
         # Run random prediction in thread pool
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(
             executor,
-            cnn_model.generate_random_prediction
+            model.generate_random_prediction
         )
         
         if result["status"] == "error":
@@ -208,6 +237,8 @@ async def predict_random():
             data=result
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error generating random prediction: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
@@ -278,14 +309,19 @@ async def get_cnn_concepts():
 async def reset_model():
     """Reset the current model (clear from memory)"""
     try:
-        global cnn_model
-        cnn_model = CNNModel()  # Create new instance
+        model = get_cnn_model()
+        # Reset the model instance
+        model.model = None
+        model.is_loaded = False
+        model.model_type = None
         
         return {
             "status": "success",
             "message": "Model reset successfully"
         }
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error resetting model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")

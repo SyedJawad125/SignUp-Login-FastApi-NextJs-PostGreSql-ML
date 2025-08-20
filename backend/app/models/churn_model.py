@@ -30,7 +30,7 @@ def train_churn_model():
 
     # Features
     categorical_cols = [
-        'gender', 'Partner', 'Dependents', 'PhoneService',
+        'gender', 'SeniorCitizen', 'Partner', 'Dependents', 'PhoneService',
         'MultipleLines', 'InternetService', 'OnlineSecurity',
         'OnlineBackup', 'DeviceProtection', 'TechSupport',
         'StreamingTV', 'StreamingMovies', 'Contract',

@@ -17,7 +17,7 @@ from app.models.mnist_model import mnist_model
 logger = logging.getLogger(__name__)
 
 # Create router
-router = APIRouter(prefix="/api/v1", tags=["MNIST Prediction"])
+router = APIRouter(prefix="/api/mnist", tags=["MNIST Prediction"])
 
 # ============================================================================
 # PYDANTIC MODELS FOR REQUEST/RESPONSE
