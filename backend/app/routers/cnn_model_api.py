@@ -336,7 +336,14 @@
 
 
 
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form
+
+
+
+
+
+
+
+from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Query
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, Tuple
@@ -360,6 +367,7 @@ executor = ThreadPoolExecutor(max_workers=2)
 class ModelCreateRequest(BaseModel):
     model_type: str = "simple"  # simple, vgg, resnet
     target_size: Tuple[int, int] = (150, 150)  # Image size for training
+    batch_size: int = 32
 
 class TrainingRequest(BaseModel):
     epochs: int = 10
@@ -398,7 +406,7 @@ async def health_check():
         
         # Check dataset availability
         dataset_path = cnn_model.dataset_path
-        train_path = os.path.join(dataset_path, 'train cats and dogs')
+        train_path = os.path.join(dataset_path, 'train')
         dataset_status = "available" if os.path.exists(train_path) else "missing"
         
         return {
@@ -425,6 +433,7 @@ async def create_model(request: ModelCreateRequest):
     
     - **model_type**: Type of CNN architecture (simple, vgg, resnet)
     - **target_size**: Input image size as [width, height] (default: [150, 150])
+    - **batch_size**: Batch size for data generators (default: 32)
     """
     try:
         model = get_cnn_model()
@@ -440,7 +449,8 @@ async def create_model(request: ModelCreateRequest):
             executor, 
             model.create_model, 
             request.model_type,
-            request.target_size
+            request.target_size,
+            request.batch_size
         )
         
         if result["status"] == "error":
@@ -481,7 +491,7 @@ async def get_model_info():
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 @router.post("/model/load", response_model=ModelResponse, summary="Load Saved Model")
-async def load_model(model_path: Optional[str] = None):
+async def load_model(model_path: Optional[str] = Query(None, description="Path to model file")):
     """Load a previously saved model"""
     try:
         model = get_cnn_model()
@@ -507,35 +517,6 @@ async def load_model(model_path: Optional[str] = None):
         raise
     except Exception as e:
         logger.error(f"Error loading model: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
-
-@router.post("/model/save", response_model=ModelResponse, summary="Save Current Model")
-async def save_model(model_path: Optional[str] = None):
-    """Save the current trained model"""
-    try:
-        model = get_cnn_model()
-        
-        # Run saving in thread pool
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(
-            executor,
-            model.save_model,
-            model_path
-        )
-        
-        if result["status"] == "error":
-            raise HTTPException(status_code=400, detail=result["message"])
-        
-        return ModelResponse(
-            status="success",
-            message=result["message"],
-            data=result
-        )
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Error saving model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 # Training endpoints
@@ -613,9 +594,9 @@ async def evaluate_model():
         logger.error(f"Error evaluating model: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
-# Prediction endpoints
+# Prediction endpoints - FIXED
 @router.post("/predict/image", response_model=ModelResponse, summary="Predict Image Class")
-async def predict_image(file: UploadFile = File(...)):
+async def predict_image(file: UploadFile = File(..., description="Image file (JPG, PNG, etc.)")):
     """
     Predict whether an uploaded image is a cat or dog
     
@@ -628,19 +609,28 @@ async def predict_image(file: UploadFile = File(...)):
         if not model.is_loaded:
             raise HTTPException(status_code=400, detail="No model found. Please create and train a model first.")
         
+        # Check if file was actually uploaded
+        if not file:
+            raise HTTPException(status_code=400, detail="No file uploaded")
+        
         # Validate file type
-        if not file.content_type.startswith('image/'):
+        if file.content_type and not file.content_type.startswith('image/'):
             raise HTTPException(status_code=400, detail="File must be an image")
         
-        # Validate file size (e.g., max 10MB)
-        if file.size > 10 * 1024 * 1024:
-            raise HTTPException(status_code=400, detail="File size too large. Maximum 10MB allowed.")
-        
         # Read image data
-        image_data = await file.read()
+        try:
+            image_data = await file.read()
+        except Exception as e:
+            raise HTTPException(status_code=400, detail=f"Could not read file: {str(e)}")
         
         if len(image_data) == 0:
             raise HTTPException(status_code=400, detail="Empty file received")
+        
+        # Validate file size (e.g., max 10MB)
+        if len(image_data) > 10 * 1024 * 1024:
+            raise HTTPException(status_code=400, detail="File size too large. Maximum 10MB allowed.")
+        
+        logger.info(f"Processing image file: {file.filename}, size: {len(image_data)} bytes")
         
         # Run prediction in thread pool
         loop = asyncio.get_event_loop()
@@ -666,7 +656,7 @@ async def predict_image(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 @router.post("/predict/path", response_model=ModelResponse, summary="Predict Image from File Path")
-async def predict_image_path(image_path: str = Form(...)):
+async def predict_image_path(image_path: str = Form(..., description="Full path to the image file")):
     """
     Predict whether an image at given file path is a cat or dog
     
@@ -721,21 +711,27 @@ async def get_dataset_info():
         }
         
         # Check each folder
-        for folder_name in ['train cats and dogs', 'validation cats and dogs', 'test cats and dogs']:
+        for folder_name in ['train', 'validation', 'test']:
             folder_path = os.path.join(dataset_path, folder_name)
             if os.path.exists(folder_path):
-                cats_path = os.path.join(folder_path, 'cats')
-                dogs_path = os.path.join(folder_path, 'dogs')
+                # Check for subfolders
+                subfolders = [f for f in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, f))]
+                folder_info = {"subfolders": {}, "total": 0}
                 
-                cats_count = len([f for f in os.listdir(cats_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]) if os.path.exists(cats_path) else 0
-                dogs_count = len([f for f in os.listdir(dogs_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]) if os.path.exists(dogs_path) else 0
+                for subfolder in subfolders:
+                    subfolder_path = os.path.join(folder_path, subfolder)
+                    if os.path.exists(subfolder_path):
+                        try:
+                            files = [f for f in os.listdir(subfolder_path) 
+                                   if f.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.gif'))]
+                            count = len(files)
+                            folder_info["subfolders"][subfolder] = count
+                            folder_info["total"] += count
+                        except PermissionError:
+                            folder_info["subfolders"][subfolder] = "permission_denied"
                 
-                info["folders"][folder_name] = {
-                    "cats": cats_count,
-                    "dogs": dogs_count,
-                    "total": cats_count + dogs_count
-                }
-                info["total_images"] += cats_count + dogs_count
+                info["folders"][folder_name] = folder_info
+                info["total_images"] += folder_info["total"]
             else:
                 info["folders"][folder_name] = {
                     "status": "not_found",
@@ -820,38 +816,24 @@ async def get_cnn_concepts():
         }
     }
 
-@router.get("/training/summary", response_model=ModelResponse, summary="Get Training Summary")
-async def get_training_summary():
-    """Get summary of model training status and capabilities"""
-    try:
-        model = get_cnn_model()
-        result = model.get_training_summary()
-        
-        return ModelResponse(
-            status="success",
-            message="Training summary retrieved",
-            data=result
-        )
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Error getting training summary: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
-
 @router.delete("/model/reset", summary="Reset Model")
 async def reset_model():
     """Reset the current model (clear from memory)"""
     try:
         model = get_cnn_model()
-        result = model.reset_model()
         
-        if result["status"] == "error":
-            raise HTTPException(status_code=400, detail=result["message"])
+        # Reset model state
+        model.model = None
+        model.model_type = None
+        model.is_loaded = False
+        model.is_trained = False
+        model.train_generator = None
+        model.validation_generator = None
+        model.test_generator = None
         
         return ModelResponse(
             status="success",
-            message=result["message"]
+            message="Model reset successfully"
         )
         
     except HTTPException:
@@ -869,12 +851,12 @@ async def test_dataset_paths():
         base_path = model.dataset_path
         
         paths_to_check = [
-            'train cats and dogs/cats',
-            'train cats and dogs/dogs', 
-            'validation cats and dogs/cats',
-            'validation cats and dogs/dogs',
-            'test cats and dogs/cats',
-            'test cats and dogs/dogs'
+            'train/cats',
+            'train/dogs', 
+            'validation/cats',
+            'validation/dogs',
+            'test/cats',
+            'test/dogs'
         ]
         
         results = {}
@@ -892,11 +874,19 @@ async def test_dataset_paths():
                     results[path]["sample_files"] = files[:3]  # Show first 3 files
                 except PermissionError:
                     results[path]["error"] = "Permission denied"
+                except Exception as e:
+                    results[path]["error"] = str(e)
         
         return {"dataset_paths": results}
         
     except Exception as e:
         return {"error": str(e)}
+
+# Simple test endpoint
+@router.get("/test/simple", include_in_schema=False)
+async def test_simple():
+    """Simple test endpoint"""
+    return {"message": "Router is working!", "timestamp": "2025-01-01"}
 
 # Error handlers for testing
 @router.get("/test/error", include_in_schema=False)
