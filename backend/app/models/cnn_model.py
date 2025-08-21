@@ -611,8 +611,10 @@ import os
 import io
 import logging
 from typing import Tuple, Dict, Any
+
 import numpy as np
 from PIL import Image
+
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -841,4 +843,449 @@ class CNNModel:
 
         # Global average pooling and output
         x = layers.GlobalAveragePooling2D()(x)
-        x = layers.Dense
+        x = layers.Dense(128, activation="relu")(x)
+        x = layers.Dropout(0.5)(x)
+        outputs = layers.Dense(1, activation="sigmoid")(x)  # Binary
+
+        return keras.Model(inputs=inputs, outputs=outputs)
+
+    # ------------------------------------------------------------------
+    # Create / Compile
+    # ------------------------------------------------------------------
+    def create_model(
+        self,
+        model_type: str = "simple",
+        target_size: Tuple[int, int] = (150, 150),
+        batch_size: int = 32,
+    ) -> Dict[str, Any]:
+        """Create and compile a CNN model, after setting up data generators."""
+        try:
+            # Setup data generators first
+            data_setup = self.setup_data_generators(batch_size=batch_size, target_size=target_size)
+            if data_setup["status"] == "error":
+                return data_setup
+
+            # Create model based on type
+            if model_type == "simple":
+                self.model = self.create_simple_cnn()
+            elif model_type == "vgg":
+                self.model = self.create_vgg_style_cnn()
+            elif model_type == "resnet":
+                self.model = self.create_resnet_style_cnn()
+            else:
+                raise ValueError(f"Unknown model type: {model_type}")
+
+            # Compile the model for binary classification
+            self.model.compile(
+                optimizer=keras.optimizers.Adam(learning_rate=0.001),
+                loss="binary_crossentropy",
+                metrics=["accuracy"],
+            )
+
+            self.model_type = model_type
+            self.is_loaded = True
+            self.is_trained = False
+
+            logger.info(f"Created {model_type} model with {self.model.count_params()} parameters")
+
+            return {
+                "status": "success",
+                "message": f"{model_type.upper()} model created successfully",
+                "model_type": model_type,
+                "parameters": int(self.model.count_params()),
+                "input_shape": self.input_shape,
+                "output_classes": self.num_classes,
+                "train_samples": self.train_generator.samples,
+                "validation_samples": self.validation_generator.samples,
+                "test_samples": self.test_generator.samples,
+                "class_names": self.class_names,
+            }
+
+        except Exception as e:
+            logger.exception("Error creating model")
+            self.is_loaded = False
+            return {"status": "error", "message": f"Failed to create model: {str(e)}"}
+
+    # ------------------------------------------------------------------
+    # Train / Evaluate
+    # ------------------------------------------------------------------
+    def train_model(self, epochs: int = 10, batch_size: int = 32) -> Dict[str, Any]:
+        """Train the CNN model with real dataset."""
+        if self.model is None:
+            return {"status": "error", "message": "No model found. Please create a model first."}
+        if self.train_generator is None:
+            return {
+                "status": "error",
+                "message": "No training data generator found. Please create a model first to setup data generators.",
+            }
+
+        try:
+            logger.info("Starting training with real dataset...")
+
+            # Calculate steps per epoch (at least 1)
+            steps_per_epoch = max(1, self.train_generator.samples // batch_size)
+            validation_steps = max(1, self.validation_generator.samples // batch_size)
+
+            # Callbacks
+            callbacks = [
+                keras.callbacks.EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True),
+                keras.callbacks.ReduceLROnPlateau(monitor="val_loss", factor=0.2, patience=3, min_lr=1e-4),
+            ]
+
+            # Train the model
+            history = self.model.fit(
+                self.train_generator,
+                steps_per_epoch=steps_per_epoch,
+                epochs=epochs,
+                validation_data=self.validation_generator,
+                validation_steps=validation_steps,
+                callbacks=callbacks,
+                verbose=1,
+            )
+
+            # Save the model
+            os.makedirs(os.path.dirname(self.model_path), exist_ok=True)
+            self.model.save(self.model_path)
+            self.is_trained = True
+
+            # Final metrics
+            final_loss = float(history.history["loss"][-1])
+            final_acc = float(history.history["accuracy"][-1])
+            final_val_loss = float(history.history["val_loss"][-1])
+            final_val_acc = float(history.history["val_accuracy"][-1])
+
+            logger.info("Training completed successfully!")
+
+            return {
+                "status": "success",
+                "message": "Model trained successfully with real dataset",
+                "epochs": len(history.history["loss"]),
+                "final_metrics": {
+                    "loss": final_loss,
+                    "accuracy": final_acc,
+                    "val_loss": final_val_loss,
+                    "val_accuracy": final_val_acc,
+                },
+                "training_history": {
+                    "loss": [float(x) for x in history.history["loss"]],
+                    "accuracy": [float(x) for x in history.history["accuracy"]],
+                    "val_loss": [float(x) for x in history.history["val_loss"]],
+                    "val_accuracy": [float(x) for x in history.history["val_accuracy"]],
+                },
+            }
+
+        except Exception as e:
+            logger.exception("Error during training")
+            return {"status": "error", "message": f"Training failed: {str(e)}"}
+
+    def evaluate_model(self) -> Dict[str, Any]:
+        """Evaluate the model on test dataset."""
+        if self.model is None or not self.is_trained:
+            return {"status": "error", "message": "No trained model found. Please train a model first."}
+        if self.test_generator is None:
+            return {"status": "error", "message": "No test data generator found."}
+
+        try:
+            logger.info("Evaluating model on test dataset...")
+
+            test_steps = max(1, self.test_generator.samples // self.test_generator.batch_size)
+
+            # Evaluate the model
+            test_loss, test_accuracy = self.model.evaluate(self.test_generator, steps=test_steps, verbose=1)
+
+            # Predictions for detailed analysis
+            self.test_generator.reset()
+            predictions = self.model.predict(self.test_generator, steps=test_steps, verbose=1)
+
+            # Convert predictions to class predictions
+            pred_classes = (predictions > 0.5).astype(int).flatten()
+            true_classes = self.test_generator.classes[: len(pred_classes)]
+
+            # Additional metrics
+            try:
+                from sklearn.metrics import classification_report, confusion_matrix
+
+                class_report = classification_report(
+                    true_classes,
+                    pred_classes,
+                    target_names=[name.capitalize() for name in self.class_names],
+                    output_dict=True,
+                )
+                conf_matrix = confusion_matrix(true_classes, pred_classes).tolist()
+            except ImportError:
+                # Fallback if sklearn is not available
+                class_report = {"note": "sklearn not available for detailed metrics"}
+                conf_matrix = [[0, 0], [0, 0]]
+
+            logger.info(f"Test accuracy: {test_accuracy:.4f}")
+
+            return {
+                "status": "success",
+                "test_accuracy": float(test_accuracy),
+                "test_loss": float(test_loss),
+                "classification_report": class_report,
+                "confusion_matrix": conf_matrix,
+                "total_test_samples": int(len(pred_classes)),
+            }
+
+        except Exception as e:
+            logger.exception("Error during evaluation")
+            return {"status": "error", "message": f"Evaluation failed: {str(e)}"}
+
+    # ------------------------------------------------------------------
+    # Inference helpers
+    # ------------------------------------------------------------------
+    def preprocess_image(self, image_data: bytes) -> np.ndarray:
+        """Preprocess a raw image bytes for prediction."""
+        try:
+            image = Image.open(io.BytesIO(image_data))
+            if image.mode != "RGB":
+                image = image.convert("RGB")
+
+            target_size = (self.input_shape[0], self.input_shape[1])
+            image = image.resize(target_size)
+
+            image_array = np.array(image).astype(np.float32) / 255.0
+            image_array = np.expand_dims(image_array, axis=0)  # add batch dim
+            return image_array
+        except Exception as e:
+            logger.exception("Error preprocessing image")
+            raise
+
+    def predict_image(self, image_data: bytes) -> Dict[str, Any]:
+        """Make prediction on an image (bytes)."""
+        if self.model is None:
+            return {
+                "status": "error",
+                "message": "No model found. Please create and train a model first.",
+            }
+        try:
+            processed_image = self.preprocess_image(image_data)
+            prediction = float(self.model.predict(processed_image, verbose=0)[0][0])
+
+            predicted_class_idx = 1 if prediction > 0.5 else 0
+            # Use detected class names if available
+            label_candidates = [name.capitalize() for name in self.class_names]
+            if len(label_candidates) < 2:
+                label_candidates = ["Cat", "Dog"]
+            predicted_class = label_candidates[predicted_class_idx]
+            confidence = prediction if predicted_class_idx == 1 else 1.0 - prediction
+
+            return {
+                "status": "success",
+                "predicted_class": predicted_class,
+                "confidence": float(confidence),
+                "probabilities": {
+                    label_candidates[0]: float(1.0 - prediction),
+                    label_candidates[1]: float(prediction),
+                },
+                "raw_prediction": prediction,
+            }
+        except Exception as e:
+            logger.exception("Error during prediction")
+            return {"status": "error", "message": f"Prediction failed: {str(e)}"}
+
+    def predict_from_path(self, image_path: str) -> Dict[str, Any]:
+        """Make prediction on an image from file path."""
+        try:
+            with open(image_path, "rb") as f:
+                image_data = f.read()
+            return self.predict_image(image_data)
+        except Exception as e:
+            return {"status": "error", "message": f"Failed to load image from {image_path}: {str(e)}"}
+
+    # ------------------------------------------------------------------
+    # Introspection / Persistence
+    # ------------------------------------------------------------------
+    def get_model_info(self) -> Dict[str, Any]:
+        """Get information about the current model."""
+        if self.model is None:
+            return {"status": "error", "message": "No model found"}
+        try:
+            info = {
+                "status": "success",
+                "model_type": self.model_type,
+                "parameters": int(self.model.count_params()),
+                "input_shape": self.input_shape,
+                "output_classes": self.num_classes,
+                "class_names": [name.capitalize() for name in self.class_names],
+                "is_loaded": self.is_loaded,
+                "is_trained": self.is_trained,
+                "dataset_info": {},
+            }
+            if self.train_generator:
+                info["dataset_info"]["train_samples"] = self.train_generator.samples
+            if self.validation_generator:
+                info["dataset_info"]["validation_samples"] = self.validation_generator.samples
+            if self.test_generator:
+                info["dataset_info"]["test_samples"] = self.test_generator.samples
+            return info
+        except Exception as e:
+            return {"status": "error", "message": f"Error getting model info: {str(e)}"}
+
+    def load_model(self, model_path: str | None = None) -> Dict[str, Any]:
+        """Load a saved model and ensure proper architecture setup."""
+        try:
+            path = model_path or self.model_path
+            if os.path.exists(path):
+                # Load the model
+                self.model = keras.models.load_model(path)
+                self.is_loaded = True
+                self.is_trained = True
+                
+                # Extract input shape from the loaded model
+                self.input_shape = self.model.layers[0].input_shape[0][1:]  # Get (150, 150, 3)
+                
+                # Try to infer model type from layer names and structure
+                layer_names = [layer.name for layer in self.model.layers]
+                
+                if 'resnet' in str(layer_names).lower() or any('add' in name for name in layer_names):
+                    self.model_type = "resnet"
+                elif 'vgg' in str(layer_names).lower() or len(self.model.layers) > 15:
+                    self.model_type = "vgg"
+                else:
+                    self.model_type = "simple"
+                
+                # Update class names if they were saved with the model
+                if hasattr(self.model, 'class_names_'):
+                    self.class_names = self.model.class_names_
+                
+                logger.info(f"Model loaded from {path}")
+                logger.info(f"Input shape: {self.input_shape}")
+                logger.info(f"Model type: {self.model_type}")
+                
+                return {
+                    "status": "success",
+                    "message": f"Model loaded successfully from {path}",
+                    "model_type": self.model_type,
+                    "input_shape": self.input_shape,
+                    "parameters": int(self.model.count_params()),
+                }
+            else:
+                return {"status": "error", "message": f"Model file not found at {path}"}
+        except Exception as e:
+            logger.exception("Error loading model")
+            self.is_loaded = False
+            return {"status": "error", "message": f"Failed to load model: {str(e)}"}
+
+    # ------------------------------------------------------------------
+    # Additional missing methods from the router
+    # ------------------------------------------------------------------
+    def save_model(self, model_path: str | None = None) -> Dict[str, Any]:
+        """Save the current model to file."""
+        if self.model is None:
+            return {"status": "error", "message": "No model found to save."}
+        
+        try:
+            path = model_path or self.model_path
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            
+            # Save class names as a custom attribute
+            if hasattr(self.model, 'class_names_'):
+                self.model.class_names_ = self.class_names
+            
+            self.model.save(path)
+            logger.info(f"Model saved to {path}")
+            
+            return {
+                "status": "success",
+                "message": f"Model saved successfully to {path}",
+                "model_path": path,
+                "model_type": self.model_type,
+                "parameters": int(self.model.count_params()),
+            }
+        except Exception as e:
+            logger.exception("Error saving model")
+            return {"status": "error", "message": f"Failed to save model: {str(e)}"}
+
+    def get_training_summary(self) -> Dict[str, Any]:
+        """Get training summary and model status."""
+        try:
+            summary = {
+                "model_status": {
+                    "is_loaded": self.is_loaded,
+                    "is_trained": self.is_trained,
+                    "model_type": self.model_type,
+                },
+                "dataset_status": {
+                    "dataset_path": self.dataset_path,
+                    "generators_ready": bool(self.train_generator),
+                },
+                "model_config": {
+                    "input_shape": self.input_shape,
+                    "num_classes": self.num_classes,
+                    "class_names": self.class_names,
+                },
+            }
+            
+            if self.model:
+                summary["model_details"] = {
+                    "parameters": int(self.model.count_params()),
+                    "layers": len(self.model.layers),
+                }
+            
+            if self.train_generator:
+                summary["dataset_info"] = {
+                    "train_samples": self.train_generator.samples,
+                    "validation_samples": self.validation_generator.samples if self.validation_generator else 0,
+                    "test_samples": self.test_generator.samples if self.test_generator else 0,
+                    "class_indices": self.train_generator.class_indices,
+                }
+            
+            return {
+                "status": "success",
+                "summary": summary,
+            }
+        except Exception as e:
+            return {"status": "error", "message": f"Error getting training summary: {str(e)}"}
+
+    def reset_model(self) -> Dict[str, Any]:
+        """Reset the model and clear all data."""
+        try:
+            self.model = None
+            self.model_type = None
+            self.is_loaded = False
+            self.is_trained = False
+            self.train_generator = None
+            self.validation_generator = None
+            self.test_generator = None
+            
+            # Reset to defaults
+            self.input_shape = (150, 150, 3)
+            self.num_classes = 2
+            self.class_names = ["cats", "dogs"]
+            
+            logger.info("Model reset successfully")
+            return {
+                "status": "success",
+                "message": "Model has been reset successfully",
+            }
+        except Exception as e:
+            logger.exception("Error resetting model")
+            return {"status": "error", "message": f"Failed to reset model: {str(e)}"}
+
+
+# -----------------------------------------------------------------------------
+# Example usage (run as a script)
+# -----------------------------------------------------------------------------
+if __name__ == "__main__":
+    # Initialize the model
+    cnn_model = CNNModel()
+
+    # Create and train a model
+    print("Creating model...")
+    result = cnn_model.create_model(model_type="simple", target_size=(150, 150), batch_size=32)
+    print(result)
+
+    if result.get("status") == "success":
+        print("\nTraining model...")
+        train_result = cnn_model.train_model(epochs=20, batch_size=32)
+        print(train_result)
+
+        if train_result.get("status") == "success":
+            print("\nEvaluating model...")
+            eval_result = cnn_model.evaluate_model()
+            print(eval_result)
+            # Example single-image prediction
+            # pred_result = cnn_model.predict_from_path('path/to/test/image.jpg')
+            # print(pred_result)

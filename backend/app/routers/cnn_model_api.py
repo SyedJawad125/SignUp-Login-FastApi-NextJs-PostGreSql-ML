@@ -353,6 +353,8 @@ from concurrent.futures import ThreadPoolExecutor
 import sys
 import os
 
+import app
+
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -893,3 +895,12 @@ async def test_simple():
 async def test_error():
     """Test endpoint to trigger error handling"""
     raise HTTPException(status_code=500, detail="This is a test error")
+
+
+@router.get("/api/test")
+async def test_endpoint():
+    return {"message": "API is working", "endpoints": {
+        "cnn_create": "/api/cnn/model/create",
+        "cnn_train": "/api/cnn/model/train",
+        "cnn_predict": "/api/cnn/predict/image"
+    }}
